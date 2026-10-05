@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="QtRZL0XjADzHEwSwGdXTZGX1Vj5kNe7svAyJf5yG7o0">
+<title>ModHop – Move your Minecraft mods to any version or launcher</title>
+<meta property="og:site_name" content="ModHop">
+<meta name="application-name" content="ModHop">
+<meta name="description" content="Move your Minecraft mods, resource packs and settings to any Minecraft version or launcher: Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. Free for Windows.">
+<link rel="canonical" href="https://modhop.github.io/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ModHop – Move your Minecraft mods to any version or launcher">
+<meta property="og:description" content="Free Windows app that updates your Minecraft mods to a new version and moves profiles between launchers.">
+<meta property="og:url" content="https://modhop.github.io/">
+<meta property="og:image" content="https://modhop.github.io/img/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ModHop","operatingSystem":"Windows 10, Windows 11","applicationCategory":"GameApplication","description":"Free Minecraft mod manager and mod updater that moves mods, resource packs and settings to any Minecraft version or launcher.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://da.gd/ModHop","url":"https://modhop.github.io/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ModHop","alternateName":["ModHop Minecraft","ModHop mod migrator"],"url":"https://modhop.github.io/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ModHop","url":"https://modhop.github.io/","logo":"https://modhop.github.io/logo.png"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Rubik:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one centered column; hero with the Download button dead center, then a pixel-grass edge into
+   alternating bands (works with / features / how / reviews / FAQ). Dark night-sky first, like the app. */
+:root {
+  --sky: #0a0e16; --sky2: #111827; --panel: #151d2b; --line: #243046; --text: #e9eef7; --muted: #95a1b6;
+  --blue: #4fa3e0; --grass: #5bbf3a; --grass-dark: #3d8a25; --dirt: #8b5a2b; --gold: #f2c14e;
+  --display: "Silkscreen", "Courier New", monospace; --body: "Rubik", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --sky: #f4f8fd; --sky2: #e8f0fa; --panel: #ffffff; --line: #d4deeb; --text: #13213a; --muted: #55657e;
+  --blue: #2f86c7; --grass: #48a52a; --grass-dark: #2f7a18; --dirt: #8b5a2b; --gold: #c99a1c; color-scheme: light; } }
+:root[data-theme="light"] {
+  --sky: #f4f8fd; --sky2: #e8f0fa; --panel: #ffffff; --line: #d4deeb; --text: #13213a; --muted: #55657e;
+  --blue: #2f86c7; --grass: #48a52a; --grass-dark: #2f7a18; --dirt: #8b5a2b; --gold: #c99a1c; color-scheme: light; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--sky); color: var(--text); font: 16px/1.65 var(--body); }
+a { color: var(--blue); }
+.wrap { width: min(1080px, 100%); margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; }
+.eyebrow { font-family: var(--display); font-size: 13px; letter-spacing: .08em; color: var(--blue); text-transform: uppercase; }
+.lead { color: var(--muted); font-size: 18px; max-width: 62ch; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--sky) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 18px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--display); font-size: 20px; }
+.brand svg { width: 34px; height: 34px; }
+nav .links { display: flex; gap: 18px; margin-inline-start: auto; flex-wrap: wrap; }
+nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; }
+nav .links a:hover { color: var(--text); }
+@media (max-width: 720px) { nav .links { display: none; } nav .wrap .btn-sm { margin-inline-start: auto; } }
+
+/* buttons: Minecraft-style block with a darker step under it */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-weight: 800; color: #071407; background: var(--grass); border-radius: 10px; box-shadow: 0 6px 0 var(--grass-dark); transition: transform .08s, box-shadow .08s, filter .15s; }
+.btn:hover { filter: brightness(1.07); }
+.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--grass-dark); }
+.btn-sm { padding: 8px 16px; font-size: 14px; box-shadow: 0 4px 0 var(--grass-dark); }
+.btn-xl { padding: 22px 46px; font-size: 22px; border-radius: 14px; }
+.btn-xl svg { width: 26px; height: 26px; }
+.ghost-btn { padding: 10px 18px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--text); font: 600 15px var(--body); cursor: pointer; }
+
+/* hero */
+.hero > .wrap { padding-bottom: 60px; }
+.hero { text-align: center; padding-block: 64px 0; background: radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--blue) 22%, transparent), transparent 70%); }
+.hero .logo-big { width: 104px; height: 104px; margin: 0 auto 22px; }
+.hero h1 { font-size: clamp(34px, 6.2vw, 64px); font-weight: 800; max-width: 17ch; margin: 14px auto 18px; }
+.hero h1 em { font-style: normal; color: var(--grass); }
+.hero .lead { margin: 0 auto 34px; }
+.tags { margin: 22px auto 0; max-width: 64ch; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
+.dl-meta { margin-top: 12px; color: var(--muted); font-size: 14px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.dl-meta span::before { content: "■"; color: var(--grass); margin-inline-end: 6px; font-size: 9px; vertical-align: 2px; }
+.hero-shot { margin: 54px auto 0; max-width: 760px; text-align: start; background: var(--panel); border: 1px solid var(--line); border-radius: 16px 16px 0 0; border-bottom: 0; overflow: hidden; }
+.shot-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.shot-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.shot-body { padding: 18px 20px 26px; display: grid; gap: 14px; }
+.route { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+.chip { font: 500 13px var(--mono); padding: 5px 10px; border-radius: 8px; background: var(--sky2); border: 1px solid var(--line); }
+.route .arrow { color: var(--grass); font-family: var(--display); }
+.modrow { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 12px; border-radius: 10px; background: var(--sky2); }
+.modrow b { font-weight: 600; }
+.modrow small { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.ok { color: var(--grass); font-weight: 700; font-size: 13px; }
+.add { color: var(--blue); font-weight: 700; font-size: 13px; }
+.grass-edge { height: 28px; background:
+  linear-gradient(var(--grass) 0 10px, transparent 10px),
+  repeating-linear-gradient(90deg, var(--dirt) 0 14px, color-mix(in srgb, var(--dirt) 80%, black) 14px 28px); }
+.grass-edge.top { background: repeating-linear-gradient(90deg, var(--grass) 0 14px, var(--grass-dark) 14px 28px); height: 10px; }
+
+/* screenshots */
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 22px; }
+.shots figure { margin: 0; display: grid; gap: 10px; }
+.shots img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+.shots figcaption { color: var(--muted); font-size: 14px; }
+
+/* bands */
+section { padding-block: 80px; }
+.band { background: var(--sky2); }
+.head { display: grid; gap: 10px; margin-bottom: 36px; }
+.launchers { display: flex; flex-wrap: wrap; gap: 10px; }
+.launchers span { padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); font-weight: 600; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.feature { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.feature .px { width: 34px; height: 34px; border-radius: 6px; display: grid; place-items: center; font-family: var(--display); font-size: 16px; color: #fff; }
+.feature h3 { font-size: 19px; }
+.feature p { margin: 0; color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; counter-reset: s; }
+.step { padding: 22px; border-radius: 14px; border: 1px dashed var(--line); }
+.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; background: var(--grass); color: #071407; font: 18px var(--display); margin-bottom: 12px; }
+.step h3 { font-size: 18px; margin-bottom: 6px; }
+.step p { margin: 0; color: var(--muted); }
+
+/* reviews */
+.reviews-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 820px) { .reviews-grid { grid-template-columns: 1fr; } }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 14px; }
+.avg { display: flex; align-items: baseline; gap: 10px; }
+.avg b { font: 800 52px var(--body); font-variant-numeric: tabular-nums; }
+.stars { color: var(--gold); letter-spacing: 2px; font-size: 20px; }
+.stars .off { color: var(--line); }
+.dist { display: grid; gap: 6px; }
+.dist div { display: grid; grid-template-columns: 22px 1fr 32px; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { height: 8px; border-radius: 4px; background: var(--sky2); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--gold); }
+.list { display: grid; gap: 14px; }
+.review { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; gap: 6px; }
+.review .who { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.review .who img { width: 32px; height: 32px; border-radius: 6px; image-rendering: pixelated; background: var(--sky2); }
+.review .who small { color: var(--muted); }
+.review p { margin: 0; overflow-wrap: anywhere; }
+.empty { border: 1px dashed var(--line); border-radius: 14px; padding: 26px; text-align: center; color: var(--muted); }
+form.write { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 14px; }
+form.write h3 { font-size: 19px; }
+.row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+input, select, textarea { font: 15px var(--body); color: var(--text); background: var(--sky2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+textarea { min-height: 96px; resize: vertical; }
+.pick-stars { display: flex; gap: 4px; }
+.pick-stars button { font-size: 28px; line-height: 1; background: none; border: 0; cursor: pointer; color: var(--line); padding: 2px; }
+.pick-stars button.on { color: var(--gold); }
+.form-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.form-foot .btn { padding: 12px 22px; font-size: 16px; border: 0; cursor: pointer; font-family: var(--body); }
+.msg { font-size: 14px; color: var(--muted); }
+.msg.err { color: #f87171; }
+
+/* faq + final */
+details { border-bottom: 1px solid var(--line); padding-block: 16px; }
+summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::after { content: "+"; font-family: var(--display); color: var(--grass); }
+details[open] summary::after { content: "-"; }
+details p { color: var(--muted); margin: 10px 0 0; max-width: 70ch; }
+.final { text-align: center; }
+.final h2 { margin-bottom: 26px; }
+footer { border-top: 1px solid var(--line); padding-block: 26px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="mhG"><path d="M76 128l40 20-40 20-40-20z" fill="#6CC24A"/><path d="M36 148l40 20v46l-40-20z" fill="#8B5A2B"/><path d="M116 148l-40 20v46l40-20z" fill="#6B4423"/><path d="M36 148l40 20v12l-40-20z" fill="#5DAA3C"/><path d="M116 148l-40 20v12l40-20z" fill="#4E9433"/></g>
+  <symbol id="logo" viewBox="0 0 256 256"><rect x="8" y="8" width="240" height="240" rx="56" fill="#4FA3E0"/><rect x="20" y="214" width="216" height="22" rx="11" fill="#3B8BC9"/><use href="#mhG" opacity=".55"/><use href="#mhG" transform="translate(104 0)"/><path d="M76 118C80 52 166 36 180 96" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/><path d="M160 94L181 124 202 92Z" fill="#fff" stroke="#fff" stroke-width="10" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg><use href="#logo"/></svg>ModHop</a>
+    <div class="links"><a href="#features">Features</a><a href="#launchers">Launchers</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+    <a class="btn btn-sm" href="https://da.gd/ModHop">Download</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <svg class="logo-big" aria-hidden="true"><use href="#logo"/></svg>
+    <div class="eyebrow">Free Minecraft mod manager and mod updater for every launcher</div>
+    <h1>Move your Minecraft mods to <em>any version</em> or launcher</h1>
+    <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.</p>
+    <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
+    <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
+    <div class="dl-meta"><span>Version 1.4.9</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
+  </div>
+  <div class="grass-edge" aria-hidden="true"></div>
+</header>
+
+<section id="shots">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">See it in action</div><h2>All your profiles, one click away</h2></div>
+    <div class="shots">
+      <figure><img src="img/shot-profiles.jpg" alt="ModHop listing six Fabric profiles with the menu open: transfer mods, copy settings, send to a friend, send resource packs, check and fix mods" width="800" height="523" loading="lazy"><figcaption>Right-click a profile to move its mods, copy its settings or send it to a friend.</figcaption></figure>
+      <figure><img src="img/shot-friends.jpg" alt="The Friends tab in ModHop with a friend request, a received profile with 24 mods and 2 resource packs, and a list of friends" width="800" height="523" loading="lazy"><figcaption>Friends send you profiles and resource packs. Click Get it and pick your launcher.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="launchers" class="band">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Works with</div><h2>Every version, every launcher</h2><p class="lead">ModHop works with every Minecraft version and mod loader. It finds the launchers on your PC by itself and reads their profiles, so you can move a profile from one launcher to another.</p></div>
+    <div class="launchers" style="margin-bottom:14px"><span>Every Minecraft version</span><span>Fabric</span><span>Forge</span><span>NeoForge</span><span>Quilt</span></div>
+    <div class="launchers"><span>Dawn</span><span>Modrinth App</span><span>Prism Launcher</span><span>MultiMC</span><span>PolyMC</span><span>CurseForge</span><span>ATLauncher</span><span>Minecraft Launcher</span></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">Features</div><h2>Update Minecraft mods without breaking your game</h2></div>
+    <div class="features">
+      <div class="feature"><div class="px" style="background:var(--grass)">↑</div><h3>Update to a new Minecraft version</h3><p>Pick a profile and a newer version. ModHop downloads the build of each mod made for that version from Modrinth.</p></div>
+      <div class="feature"><div class="px" style="background:var(--blue)">⇄</div><h3>Switch launchers</h3><p>Move a profile from Modrinth App to Dawn, from CurseForge to Prism, or the other way, with the same mods.</p></div>
+      <div class="feature"><div class="px" style="background:var(--dirt)">+</div><h3>Adds missing mods</h3><p>When a mod needs another mod to run, ModHop adds it. Mods that would crash the game are held back and explained.</p></div>
+      <div class="feature"><div class="px" style="background:var(--gold);color:#2a1f00">▦</div><h3>Resource packs and settings</h3><p>Your resource packs, game options, mod configs and server list come along.</p></div>
+      <div class="feature"><div class="px" style="background:#8b6fd6">♥</div><h3>Send profiles to friends</h3><p>Send a profile, or just resource packs, to a friend by Minecraft name. They download it into the launcher they choose.</p></div>
+      <div class="feature"><div class="px" style="background:#3aa7a3">✓</div><h3>Safe by default</h3><p>Downloads come only from Modrinth and are checked. Replaced files are backed up, and updates to ModHop are signed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="band">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">How it works</div><h2>Three clicks to a working profile</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Pick a profile</h3><p>ModHop lists the profiles of all your launchers. Right-click the one you want to move.</p></div>
+      <div class="step"><h3>Pick where it goes</h3><p>Choose another version or another launcher, and the mods and resource packs to bring.</p></div>
+      <div class="step"><h3>Play</h3><p>ModHop downloads the right files and tells you what changed. Open your launcher and play.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="band">
+  <div class="wrap">
+    <div class="head"><div class="eyebrow">FAQ</div><h2>Questions</h2></div>
+    <details><summary>Is ModHop free?</summary><p>Yes. ModHop is free, with no ads and no account.</p></details>
+    <details><summary>Will it change my existing profiles?</summary><p>Only the profile you choose as the target. Files it replaces are copied to a backup folder first. Profiles a friend sends you always become a new profile.</p></details>
+    <details><summary>Where do the mods come from?</summary><p>From Modrinth. ModHop checks every file's hash before it uses it. Mods that are not on Modrinth are listed so you can add them yourself.</p></details>
+    <details><summary>Why does Windows or my browser warn about the file?</summary><p>ModHop is new and not yet signed with a paid certificate, so Windows and browsers don't recognize it. Choose Keep, or More info → Run anyway.</p></details>
+    <details><summary>Does it work with Forge and NeoForge?</summary><p>Yes, in launchers that support them. Dawn profiles use Fabric, so Forge and NeoForge profiles go to launchers like Modrinth App or Prism Launcher.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Ready to move your mods?</h2>
+    <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>ModHop 1.4.9 · Minecraft mod manager for Windows</span><span>Not affiliated with Mojang, Microsoft or any launcher.</span></div></footer>
+
+
+
+</body>
+</html>
