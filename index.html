@@ -187,7 +187,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <svg class="logo-big" aria-hidden="true"><use href="#logo"/></svg>
     <div class="eyebrow">ModHop · Free Minecraft mod manager and mod updater for every launcher</div>
     <h1>Move your Minecraft mods to <em>any version</em> or launcher</h1>
-    <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.</p>
+    <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.<span id="dlCountTop" hidden></span></p>
     <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
     <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
     <div class="dl-meta"><span>Version 1.4.10</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
@@ -275,9 +275,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       try { localStorage.setItem(KEY, JSON.stringify({ n, at: Date.now() })); } catch {}
     } catch { return; }
   }
-  const el = document.getElementById('dlCount');
-  el.textContent = 'Downloaded ' + n.toLocaleString('en') + ' times';
-  el.hidden = false;
+  const text = n.toLocaleString('en');
+  const el = document.getElementById('dlCount'), top = document.getElementById('dlCountTop');
+  el.textContent = 'Downloaded ' + text + ' times';
+  top.textContent = ' Downloaded ' + text + ' times so far.';
+  el.hidden = top.hidden = false;
 })();
 </script>
 </body>
