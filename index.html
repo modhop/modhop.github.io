@@ -9,6 +9,14 @@
 <meta name="application-name" content="ModHop">
 <meta name="description" content="Move your Minecraft mods, resource packs and settings to any Minecraft version or launcher: Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. Free for Windows.">
 <link rel="canonical" href="https://modhop.github.io/">
+<link rel="alternate" hreflang="en" href="https://modhop.github.io/">
+<link rel="alternate" hreflang="he" href="https://modhop.github.io/he/">
+<link rel="alternate" hreflang="zh" href="https://modhop.github.io/zh/">
+<link rel="alternate" hreflang="hi" href="https://modhop.github.io/hi/">
+<link rel="alternate" hreflang="es" href="https://modhop.github.io/es/">
+<link rel="alternate" hreflang="ar" href="https://modhop.github.io/ar/">
+<link rel="alternate" hreflang="fr" href="https://modhop.github.io/fr/">
+<link rel="alternate" hreflang="x-default" href="https://modhop.github.io/">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -153,6 +161,14 @@ textarea { min-height: 96px; resize: vertical; }
 .form-foot .btn { padding: 12px 22px; font-size: 16px; border: 0; cursor: pointer; font-family: var(--body); }
 .msg { font-size: 14px; color: var(--muted); }
 .msg.err { color: #f87171; }
+.rate-box { max-width: 460px; margin: 0 auto; text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 10px; justify-items: center; }
+.rate-box .avg b { font-size: 46px; }
+.rate-box .pick-stars button { font-size: 34px; }
+.rate-box .pick-stars button:hover, .rate-box .pick-stars button.hover { color: var(--gold); }
+/* the pixel font has Latin letters only */
+:lang(he) .eyebrow, :lang(ar) .eyebrow, :lang(zh) .eyebrow, :lang(hi) .eyebrow { font-family: var(--body); font-weight: 700; font-size: 14px; letter-spacing: 0; }
+select.lang { width: auto; padding: 6px 8px; font-size: 14px; background: transparent; color: var(--muted); border-radius: 8px; }
+@media (max-width: 720px) { select.lang { margin-inline-start: auto; } nav .wrap .btn-sm { margin-inline-start: 0; } }
 
 /* faq + final */
 details { border-bottom: 1px solid var(--line); padding-block: 16px; }
@@ -178,6 +194,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <div class="wrap">
     <a class="brand" href="#top"><svg><use href="#logo"/></svg>ModHop</a>
     <div class="links"><a href="#features">Features</a><a href="#launchers">Launchers</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+    <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="https://modhop.github.io/" selected>English</option><option value="https://modhop.github.io/he/">עברית</option><option value="https://modhop.github.io/zh/">中文</option><option value="https://modhop.github.io/hi/">हिन्दी</option><option value="https://modhop.github.io/es/">Español</option><option value="https://modhop.github.io/ar/">العربية</option><option value="https://modhop.github.io/fr/">Français</option></select>
     <a class="btn btn-sm" href="https://da.gd/ModHop">Download</a>
   </div>
 </nav>
@@ -187,7 +204,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <svg class="logo-big" aria-hidden="true"><use href="#logo"/></svg>
     <div class="eyebrow">ModHop · Free Minecraft mod manager and mod updater for every launcher</div>
     <h1>Move your Minecraft mods to <em>any version</em> or launcher</h1>
-    <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.<span id="dlCountTop" hidden></span></p>
+    <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.<span id="dlCountTop" data-t=" Downloaded {n} times so far." hidden></span></p>
     <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
     <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
     <div class="dl-meta"><span>Version 1.4.10</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
@@ -238,6 +255,19 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   </div>
 </section>
 
+<section id="rate">
+  <div class="wrap">
+    <div class="head" style="text-align:center;justify-items:center"><div class="eyebrow">Ratings</div><h2>What do you think of ModHop?</h2></div>
+    <div class="rate-box">
+      <div class="avg"><b id="rateAvg">–</b><span class="stars" id="rateStars" aria-hidden="true"><span class="off">★★★★★</span></span></div>
+      <div class="msg" id="rateCount" data-one="1 rating" data-many="{n} ratings">No ratings yet. Be the first!</div>
+      <div class="msg">Your rating:</div>
+      <div class="pick-stars" id="pick" role="group" aria-label="Your rating"><button type="button" data-s="1" aria-label="1 star">★</button><button type="button" data-s="2" aria-label="2 stars">★</button><button type="button" data-s="3" aria-label="3 stars">★</button><button type="button" data-s="4" aria-label="4 stars">★</button><button type="button" data-s="5" aria-label="5 stars">★</button></div>
+      <div class="msg" id="rateMsg" data-thanks="Thanks! Your rating will show up here within a few hours." data-fail="Couldn't send your rating. Try again later." hidden></div>
+    </div>
+  </div>
+</section>
+
 <section id="faq" class="band">
   <div class="wrap">
     <div class="head"><div class="eyebrow">FAQ</div><h2>Questions</h2></div>
@@ -252,7 +282,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 <section class="final">
   <div class="wrap">
     <h2>Ready to move your mods?</h2>
-    <p class="dl-count" id="dlCount" hidden></p>
+    <p class="dl-count" id="dlCount" data-t="Downloaded {n} times" hidden></p>
     <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
   </div>
 </section>
@@ -262,6 +292,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
 
 <script>
+const LANG = document.documentElement.lang;
+const fill = (el, n) => el.dataset.t.replace('{n}', n.toLocaleString(LANG));
+
 // Real download count: installer downloads of every ModHop release, read from GitHub. Kept for a day in the
 // browser, so the number refreshes daily; if GitHub can't be reached it simply isn't shown.
 (async () => {
@@ -275,11 +308,49 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       try { localStorage.setItem(KEY, JSON.stringify({ n, at: Date.now() })); } catch {}
     } catch { return; }
   }
-  const text = n.toLocaleString('en');
-  const el = document.getElementById('dlCount'), top = document.getElementById('dlCountTop');
-  el.textContent = 'Downloaded ' + text + ' times';
-  top.textContent = ' Downloaded ' + text + ' times so far.';
-  el.hidden = top.hidden = false;
+  for (const id of ['dlCount', 'dlCountTop']) { const el = document.getElementById(id); el.textContent = fill(el, n); el.hidden = false; }
+})();
+
+// Star ratings. A rating goes to a public relay topic; every hour a GitHub job in the site's repository counts
+// them (one per browser, the newest wins) into ratings.json, which is shown here and given to search engines.
+(async () => {
+  const RELAY = 'https://ntfy.sh/modhop-ratings-v1';
+  const DATA = 'https://raw.githubusercontent.com/modhop/modhop.github.io/main/ratings.json';
+  const $ = id => document.getElementById(id);
+  const stars = v => { const full = Math.round(v); return '<span>' + '★'.repeat(full) + '</span><span class="off">' + '★'.repeat(5 - full) + '</span>'; };
+  let mine = 0, id = '';
+  try { mine = Number(localStorage.getItem('modhop-rating')) || 0; id = localStorage.getItem('modhop-rater') || ''; } catch {}
+  if (!/^[0-9a-f]{16}$/.test(id)) {
+    id = [...crypto.getRandomValues(new Uint8Array(8))].map(b => b.toString(16).padStart(2, '0')).join('');
+    try { localStorage.setItem('modhop-rater', id); } catch {}
+  }
+  const buttons = [...$('pick').querySelectorAll('button')];
+  const paint = v => buttons.forEach(b => b.classList.toggle('on', Number(b.dataset.s) <= v));
+  paint(mine);
+  buttons.forEach(b => {
+    b.onmouseenter = () => paint(Number(b.dataset.s));
+    b.onmouseleave = () => paint(mine);
+    b.onclick = async () => {
+      const s = Number(b.dataset.s), msg = $('rateMsg');
+      try {
+        const res = await fetch(RELAY, { method: 'POST', body: JSON.stringify({ v: 1, kind: 'rating', id, stars: s }) });
+        if (!res.ok) throw new Error(res.status);
+        mine = s; paint(mine);
+        try { localStorage.setItem('modhop-rating', String(s)); } catch {}
+        msg.textContent = msg.dataset.thanks; msg.classList.remove('err');
+      } catch { msg.textContent = msg.dataset.fail; msg.classList.add('err'); }
+      msg.hidden = false;
+    };
+  });
+  try {
+    const r = await (await fetch(DATA, { cache: 'no-cache' })).json();
+    if (r.count > 0) {
+      $('rateAvg').textContent = r.average.toLocaleString(LANG, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      $('rateStars').innerHTML = stars(r.average);
+      const c = $('rateCount');
+      c.textContent = r.count === 1 ? c.dataset.one : c.dataset.many.replace('{n}', r.count.toLocaleString(LANG));
+    }
+  } catch {}
 })();
 </script>
 </body>
