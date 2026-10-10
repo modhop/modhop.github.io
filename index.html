@@ -80,7 +80,7 @@ nav .links a:hover { color: var(--text); }
 .tags { margin: 22px auto 0; max-width: 64ch; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
 .dl-meta { margin-top: 12px; color: var(--muted); font-size: 14px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .dl-meta span::before { content: "■"; color: var(--grass); margin-inline-end: 6px; font-size: 9px; vertical-align: 2px; }
-#dlCount { color: var(--text); font-weight: 700; }
+.dl-count { color: var(--muted); font-size: 16px; margin: -6px 0 22px; }
 .hero-shot { margin: 54px auto 0; max-width: 760px; text-align: start; background: var(--panel); border: 1px solid var(--line); border-radius: 16px 16px 0 0; border-bottom: 0; overflow: hidden; }
 .shot-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
 .shot-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
@@ -190,7 +190,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <p class="lead">ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.</p>
     <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
     <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
-    <div class="dl-meta"><span>Version 1.4.10</span><span id="dlCount" hidden></span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
+    <div class="dl-meta"><span>Version 1.4.10</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
   </div>
   <div class="grass-edge" aria-hidden="true"></div>
 </header>
@@ -252,6 +252,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 <section class="final">
   <div class="wrap">
     <h2>Ready to move your mods?</h2>
+    <p class="dl-count" id="dlCount" hidden></p>
     <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>Download for Windows</a>
   </div>
 </section>
@@ -275,7 +276,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     } catch { return; }
   }
   const el = document.getElementById('dlCount');
-  el.textContent = n.toLocaleString('en') + ' downloads';
+  el.textContent = 'Downloaded ' + n.toLocaleString('en') + ' times';
   el.hidden = false;
 })();
 </script>
