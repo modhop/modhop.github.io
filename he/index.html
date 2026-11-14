@@ -32,232 +32,281 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"modhop.github.io","alternateName":["ModHop","ModHop Minecraft"],"url":"https://modhop.github.io/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ModHop","url":"https://modhop.github.io/","logo":"https://modhop.github.io/logo.png"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Rubik:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Layout: one centered column; hero with the Download button dead center, then a pixel-grass edge into
-   alternating bands (works with / features / how / reviews / FAQ). Dark night-sky first, like the app. */
-:root {
-  --sky: #0a0e16; --sky2: #111827; --panel: #151d2b; --line: #243046; --text: #e9eef7; --muted: #95a1b6;
-  --blue: #4fa3e0; --grass: #5bbf3a; --grass-dark: #3d8a25; --dirt: #8b5a2b; --gold: #f2c14e;
-  --display: "Silkscreen", "Courier New", monospace; --body: "Rubik", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
-  --sky: #f4f8fd; --sky2: #e8f0fa; --panel: #ffffff; --line: #d4deeb; --text: #13213a; --muted: #55657e;
-  --blue: #2f86c7; --grass: #48a52a; --grass-dark: #2f7a18; --dirt: #8b5a2b; --gold: #c99a1c; color-scheme: light; } }
-:root[data-theme="light"] {
-  --sky: #f4f8fd; --sky2: #e8f0fa; --panel: #ffffff; --line: #d4deeb; --text: #13213a; --muted: #55657e;
-  --blue: #2f86c7; --grass: #48a52a; --grass-dark: #2f7a18; --dirt: #8b5a2b; --gold: #c99a1c; color-scheme: light; }
+  :root {
+    --sky-top: #0f1838; --sky: #141f47; --horizon: #2b3a73;
+    --slab: #1d2647; --slab2: #26315c; --edge: #0a0f24;
+    --text: #eef1ff; --muted: #a2abd0;
+    --sky-blue: #62b6f2; --grass: #7bcb4f; --grass-hi: #a3e675; --grass-step: #3e7a22; --dirt: #8b5a2b; --xp: #f4d34b;
+    --hi: rgba(255,255,255,.14); --lo: rgba(3,6,18,.6);
+    --bevel: inset 3px 3px 0 var(--hi), inset -3px -3px 0 var(--lo);
+    --pixel: "Pixelify Sans", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--text); font: 17px/1.6 "Rubik", system-ui, sans-serif; background: var(--sky-top); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  :focus-visible { outline: 3px solid var(--xp); outline-offset: 3px; }
 
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--sky); color: var(--text); font: 16px/1.65 var(--body); }
-a { color: var(--blue); }
-.wrap { width: min(1080px, 100%); margin: 0 auto; padding-inline: 20px; }
-h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
-h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; }
-.eyebrow { font-family: var(--display); font-size: 13px; letter-spacing: .08em; color: var(--blue); text-transform: uppercase; }
-.lead { color: var(--muted); font-size: 18px; max-width: 62ch; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  /* ---------- nav ---------- */
+  nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .3s; }
+  nav.solid { background: rgba(15,24,56,.88); backdrop-filter: blur(8px); box-shadow: 0 2px 0 var(--edge); }
+  nav .wrap { display: flex; align-items: center; gap: 28px; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--pixel); font-size: 24px; font-weight: 700; letter-spacing: .5px; text-shadow: 2px 2px 0 var(--edge); }
+  .brand img { width: 34px; height: 34px; border-radius: 6px; box-shadow: 0 0 0 2px var(--edge); }
+  .links { display: flex; gap: 22px; margin-inline-start: auto; font-size: 15px; }
+  .links a { text-decoration: none; color: var(--muted); }
+  .links a:hover { color: var(--text); }
 
-/* nav */
-nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--sky) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-nav .wrap { display: flex; align-items: center; gap: 18px; padding-block: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--display); font-size: 20px; }
-.brand svg { width: 34px; height: 34px; }
-nav .links { display: flex; gap: 18px; margin-inline-start: auto; flex-wrap: wrap; }
-nav .links a { color: var(--muted); text-decoration: none; font-size: 15px; }
-nav .links a:hover { color: var(--text); }
-@media (max-width: 720px) { nav .links { display: none; } nav .wrap .btn-sm { margin-inline-start: auto; } }
+  /* ---------- the grass-block button ---------- */
+  .dl {
+    display: inline-flex; align-items: center; gap: 12px; padding: 0 26px; height: 60px; text-decoration: none;
+    font-family: var(--pixel); font-size: 22px; font-weight: 700; color: #10240a; letter-spacing: .3px;
+    background: linear-gradient(var(--grass) 0 62%, var(--dirt) 62%); border: 3px solid var(--edge);
+    box-shadow: inset 3px 3px 0 rgba(255,255,255,.35), inset -3px -3px 0 rgba(0,0,0,.3), 0 6px 0 var(--edge);
+    transition: transform .08s, box-shadow .08s;
+  }
+  .dl small { font-family: "Rubik"; font-size: 13px; font-weight: 600; color: #f3e3c9; padding: 1px 6px; background: rgba(0,0,0,.25); align-self: flex-end; margin-bottom: 4px; }
+  .dl:hover { filter: brightness(1.06); }
+  .dl:active { transform: translateY(6px); box-shadow: inset 3px 3px 0 rgba(0,0,0,.25), inset -3px -3px 0 rgba(255,255,255,.2), 0 0 0 var(--edge); }
+  nav .dl { height: 42px; font-size: 16px; padding: 0 16px; box-shadow: inset 2px 2px 0 rgba(255,255,255,.35), inset -2px -2px 0 rgba(0,0,0,.3), 0 4px 0 var(--edge); }
 
-/* buttons: Minecraft-style block with a darker step under it */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-weight: 800; color: #071407; background: var(--grass); border-radius: 10px; box-shadow: 0 6px 0 var(--grass-dark); transition: transform .08s, box-shadow .08s, filter .15s; }
-.btn:hover { filter: brightness(1.07); }
-.btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--grass-dark); }
-.btn-sm { padding: 8px 16px; font-size: 14px; box-shadow: 0 4px 0 var(--grass-dark); }
-.btn-xl { padding: 22px 46px; font-size: 22px; border-radius: 14px; }
-.btn-xl svg { width: 26px; height: 26px; }
-.ghost-btn { padding: 10px 18px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--text); font: 600 15px var(--body); cursor: pointer; }
+  /* ---------- hero ---------- */
+  .hero { position: relative; min-height: 100svh; overflow: hidden; background: linear-gradient(var(--sky-top), var(--sky) 45%, var(--horizon)); display: grid; align-items: center; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero .wrap { position: relative; z-index: 2; padding: 120px 0 80px; pointer-events: none; }
+  .hero .copy { max-width: 640px; pointer-events: auto; }
+  .hero h1 { margin: 0 0 20px; font-size: clamp(40px, 5.6vw, 70px); line-height: 1.02; font-weight: 800; letter-spacing: -1.5px; text-wrap: balance; }
+  .hero h1 .line { display: block; overflow: hidden; white-space: nowrap; }
+  .hero h1 .line > span { display: inline-block; }
+  .hero p { margin: 0 0 32px; font-size: 19px; color: #cdd3f0; max-width: 46ch; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 26px; font-size: 14px; color: var(--muted); }
+  .facts span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-end: 8px; background: var(--grass); box-shadow: 1px 1px 0 var(--edge); vertical-align: 1px; }
+  .ground { position: absolute; left: 0; right: 0; bottom: -1px; height: 48px; z-index: 3;
+    background: linear-gradient(var(--grass) 0 14px, var(--grass-step) 14px 18px, var(--dirt) 18px);
+    -webkit-mask: linear-gradient(90deg, #000 0 0); }
+  .ground::before { content: ""; position: absolute; inset: 0 0 auto; height: 18px;
+    background: repeating-linear-gradient(90deg, transparent 0 24px, rgba(0,0,0,.12) 24px 48px); }
 
-/* hero */
-.hero > .wrap { padding-bottom: 60px; }
-.hero { text-align: center; padding-block: 64px 0; background: radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--blue) 22%, transparent), transparent 70%); }
-.hero .logo-big { width: 104px; height: 104px; margin: 0 auto 22px; }
-.hero h1 { font-size: clamp(34px, 6.2vw, 64px); font-weight: 800; max-width: 17ch; margin: 14px auto 18px; }
-.hero h1 em { font-style: normal; color: var(--grass); }
-.hero .lead { margin: 0 auto 34px; }
-.tags { margin: 22px auto 0; max-width: 64ch; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
-.dl-meta { margin-top: 12px; color: var(--muted); font-size: 14px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.dl-meta span::before { content: "■"; color: var(--grass); margin-inline-end: 6px; font-size: 9px; vertical-align: 2px; }
-.dl-count { color: var(--muted); font-size: 16px; margin: -6px 0 22px; }
-.hero-shot { margin: 54px auto 0; max-width: 760px; text-align: start; background: var(--panel); border: 1px solid var(--line); border-radius: 16px 16px 0 0; border-bottom: 0; overflow: hidden; }
-.shot-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
-.shot-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
-.shot-body { padding: 18px 20px 26px; display: grid; gap: 14px; }
-.route { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
-.chip { font: 500 13px var(--mono); padding: 5px 10px; border-radius: 8px; background: var(--sky2); border: 1px solid var(--line); }
-.route .arrow { color: var(--grass); font-family: var(--display); }
-.modrow { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 9px 12px; border-radius: 10px; background: var(--sky2); }
-.modrow b { font-weight: 600; }
-.modrow small { color: var(--muted); font-family: var(--mono); font-size: 12px; }
-.ok { color: var(--grass); font-weight: 700; font-size: 13px; }
-.add { color: var(--blue); font-weight: 700; font-size: 13px; }
-.grass-edge { height: 28px; background:
-  linear-gradient(var(--grass) 0 10px, transparent 10px),
-  repeating-linear-gradient(90deg, var(--dirt) 0 14px, color-mix(in srgb, var(--dirt) 80%, black) 14px 28px); }
-.grass-edge.top { background: repeating-linear-gradient(90deg, var(--grass) 0 14px, var(--grass-dark) 14px 28px); height: 10px; }
+  /* ---------- sections ---------- */
+  section { padding: 110px 0; position: relative; }
+  section.dirt { background: #241a14 radial-gradient(rgba(0,0,0,.18) 1px, transparent 1.5px) 0 0 / 12px 12px; }
+  section.stone { background: #171e3c; }
+  h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 0 0 16px; font-weight: 800; letter-spacing: -.8px; max-width: 20ch; }
+  .lead { color: #c3cae8; max-width: 60ch; margin: 0 0 46px; font-size: 18px; }
 
-/* screenshots */
-.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 22px; }
-.shots figure { margin: 0; display: grid; gap: 10px; }
-.shots img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
-.shots figcaption { color: var(--muted); font-size: 14px; }
+  /* screenshots in item frames */
+  .shots { display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; align-items: start; }
+  .frame { background: #6d4a2c; padding: 12px; border: 3px solid #2e1e10; box-shadow: inset 3px 3px 0 #9a6b41, inset -3px -3px 0 #4a311b, 0 18px 40px rgba(0,0,0,.45); }
+  .frame img { border: 3px solid #2e1e10; }
+  .frame figcaption { color: #f3e3c9; font-size: 15px; padding: 12px 4px 2px; }
+  .frame:nth-child(2) { margin-top: 70px; }
 
-/* bands */
-section { padding-block: 80px; }
-.band { background: var(--sky2); }
-.head { display: grid; gap: 10px; margin-bottom: 36px; }
-.launchers { display: flex; flex-wrap: wrap; gap: 10px; }
-.launchers span { padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); font-weight: 600; }
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
-.feature { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 8px; align-content: start; }
-.feature .px { width: 34px; height: 34px; border-radius: 6px; display: grid; place-items: center; font-family: var(--display); font-size: 16px; color: #fff; }
-.feature h3 { font-size: 19px; }
-.feature p { margin: 0; color: var(--muted); }
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; counter-reset: s; }
-.step { padding: 22px; border-radius: 14px; border: 1px dashed var(--line); }
-.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; background: var(--grass); color: #071407; font: 18px var(--display); margin-bottom: 12px; }
-.step h3 { font-size: 18px; margin-bottom: 6px; }
-.step p { margin: 0; color: var(--muted); }
+  /* launchers as a hotbar */
+  .hotbar { display: flex; flex-wrap: wrap; gap: 0; width: fit-content; max-width: 100%; padding: 6px; background: #10172f; border: 3px solid var(--edge); box-shadow: var(--bevel); }
+  .slot { position: relative; width: 84px; height: 84px; display: grid; place-items: center; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); margin: 2px; }
+  .slot img { width: 46px; height: 46px; object-fit: contain; image-rendering: auto; }
+  .slot .tip { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; white-space: nowrap; padding: 6px 10px; font-size: 14px;
+    background: #12051f; border: 2px solid #2a0f5c; box-shadow: inset 0 0 0 2px #1a0638; opacity: 0; pointer-events: none; transition: opacity .15s; }
+  .slot:hover .tip, .slot:focus-visible .tip { opacity: 1; }
+  .slot:hover { border-color: #fff; }
+  .loaders { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .loaders span { padding: 6px 14px; font-size: 15px; background: var(--slab); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo); }
 
-/* reviews */
-.reviews-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: start; }
-@media (max-width: 820px) { .reviews-grid { grid-template-columns: 1fr; } }
-.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 14px; }
-.avg { display: flex; align-items: baseline; gap: 10px; }
-.avg b { font: 800 52px var(--body); font-variant-numeric: tabular-nums; }
-.stars { color: var(--gold); letter-spacing: 2px; font-size: 20px; }
-.stars .off { color: var(--line); }
-.dist { display: grid; gap: 6px; }
-.dist div { display: grid; grid-template-columns: 22px 1fr 32px; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.bar { height: 8px; border-radius: 4px; background: var(--sky2); overflow: hidden; }
-.bar i { display: block; height: 100%; background: var(--gold); }
-.list { display: grid; gap: 14px; }
-.review { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; gap: 6px; }
-.review .who { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.review .who img { width: 32px; height: 32px; border-radius: 6px; image-rendering: pixelated; background: var(--sky2); }
-.review .who small { color: var(--muted); }
-.review p { margin: 0; overflow-wrap: anywhere; }
-.empty { border: 1px dashed var(--line); border-radius: 14px; padding: 26px; text-align: center; color: var(--muted); }
-form.write { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 14px; }
-form.write h3 { font-size: 19px; }
-.row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
-label { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
-input, select, textarea { font: 15px var(--body); color: var(--text); background: var(--sky2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
-textarea { min-height: 96px; resize: vertical; }
-.pick-stars { display: flex; gap: 4px; }
-.pick-stars button { font-size: 28px; line-height: 1; background: none; border: 0; cursor: pointer; color: var(--line); padding: 2px; }
-.pick-stars button.on { color: var(--gold); }
-.form-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.form-foot .btn { padding: 12px 22px; font-size: 16px; border: 0; cursor: pointer; font-family: var(--body); }
-.msg { font-size: 14px; color: var(--muted); }
-.msg.err { color: #f87171; }
-.rate-box { max-width: 460px; margin: 0 auto; text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 10px; justify-items: center; }
-.rate-box .avg b { font-size: 46px; }
-.rate-box .pick-stars button { font-size: 34px; }
-.rate-box .pick-stars button:hover, .rate-box .pick-stars button.hover { color: var(--gold); }
-/* the pixel font has Latin letters only */
-:lang(he) .eyebrow, :lang(ar) .eyebrow, :lang(zh) .eyebrow, :lang(hi) .eyebrow { font-family: var(--body); font-weight: 700; font-size: 14px; letter-spacing: 0; }
-select.lang { width: auto; padding: 6px 8px; font-size: 14px; background: transparent; color: var(--muted); border-radius: 8px; }
-@media (max-width: 720px) { select.lang { margin-inline-start: auto; } nav .wrap .btn-sm { margin-inline-start: 0; } }
+  /* features: an inventory, items with tooltips written out */
+  .inv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 56px; }
+  .item { display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
+  .item .ico { width: 64px; height: 64px; display: grid; place-items: center; background: #8b8b8b; border: 3px solid #373737;
+    box-shadow: inset 3px 3px 0 #373737, inset -3px -3px 0 #fff; font-family: var(--pixel); font-size: 28px; color: #2c2c2c; }
+  .item h3 { margin: 4px 0 6px; font-size: 20px; }
+  .item p { margin: 0; color: #c3cae8; font-size: 16px; }
 
-/* faq + final */
-details { border-bottom: 1px solid var(--line); padding-block: 16px; }
-summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-summary::after { content: "+"; font-family: var(--display); color: var(--grass); }
-details[open] summary::after { content: "-"; }
-details p { color: var(--muted); margin: 10px 0 0; max-width: 70ch; }
-.final { text-align: center; }
-.final h2 { margin-bottom: 26px; }
-footer { border-top: 1px solid var(--line); padding-block: 26px; color: var(--muted); font-size: 14px; }
-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  /* how it works: three steps along a path, a block walks it as you scroll */
+  .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 70px; }
+  .path { position: absolute; top: 26px; left: 30px; right: 30px; height: 6px; background: repeating-linear-gradient(90deg, var(--horizon) 0 12px, transparent 12px 20px); }
+  .walker { position: absolute; top: 2px; left: 6px; width: 30px; height: 30px; background: linear-gradient(var(--grass) 0 34%, var(--dirt) 34%); border: 3px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(255,255,255,.3); }
+  .step b { display: block; font-family: var(--pixel); font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
+  .step h3 { margin: 0 0 8px; font-size: 22px; }
+  .step p { margin: 0; color: #c3cae8; }
+
+  /* faq */
+  .faq > * { max-width: 760px; }
+  details { border-bottom: 2px solid #26315c; }
+  summary { list-style: none; cursor: pointer; padding: 22px 0; font-size: 20px; font-weight: 600; display: flex; justify-content: space-between; gap: 20px; }
+  summary::after { content: "+"; font-family: var(--pixel); font-size: 26px; color: var(--sky-blue); transition: rotate .25s; }
+  details[open] summary::after { rotate: 45deg; }
+  details .a { overflow: hidden; }
+  details .a p { margin: 0 0 22px; color: #c3cae8; max-width: 62ch; }
+
+  .final { text-align: center; padding: 130px 0 150px; background: linear-gradient(var(--sky-top), #241a3f); overflow: hidden; }
+  .final h2 { margin: 0 auto 30px; max-width: none; }
+  .final .xp { width: min(420px, 80%); height: 14px; margin: 0 auto 34px; background: #10172f; border: 3px solid var(--edge); }
+  .final .xp i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 22px, #6cbf38 22px 25px); box-shadow: 0 0 14px rgba(138,224,79,.6); }
+  footer { padding: 30px 0 40px; color: var(--muted); font-size: 14px; background: #0c1229; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 860px) {
+    .links { display: none; }
+    .shots, .inv, .steps { grid-template-columns: 1fr; }
+    .frame:nth-child(2) { margin-top: 0; }
+    .path, .walker { display: none; }
+    .hero { min-height: max(100svh, 900px); }
+    .hero .wrap { padding-top: 96px; align-self: start; }
+    .dl { font-size: 18px; height: 54px; padding: 0 18px; }
+    nav .dl { font-size: 14px; }
+    .slot { width: 64px; height: 64px; } .slot img { width: 36px; height: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* ---------- block wipe between "pages" ---------- */
+  #wipe { position: fixed; inset: 0; z-index: 100; display: grid; pointer-events: none; }
+  #wipe i { display: block; background: linear-gradient(var(--grass) 0 22%, var(--grass-step) 22% 28%, var(--dirt) 28%); box-shadow: inset 0 0 0 2px rgba(0,0,0,.18); }
+
+  /* ---------- the transfer story (pinned while you scroll) ---------- */
+  .story { padding: 0; background: linear-gradient(var(--horizon), #1b2554 30%, #141d42); }
+  .story .stage { height: 100vh; display: grid; align-content: center; gap: 34px; }
+  .story h2 { margin: 0; max-width: none; text-align: center; }
+  .story .lead { margin: 0 auto; text-align: center; }
+  .boards { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: center; gap: 10px; }
+  .board { background: #c6c6c6; border: 3px solid #1c1c1c; box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555; padding: 14px; color: #2b2b2b; }
+  .board header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 700; }
+  .board header img { width: 28px; height: 28px; }
+  .board .ver { margin-inline-start: auto; font-family: var(--pixel); font-size: 18px; color: #3f3f3f; }
+  .cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cell { aspect-ratio: 1; background: #8b8b8b; box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff; display: grid; place-items: center; }
+  .cell img { width: 72%; height: 72%; object-fit: contain; image-rendering: auto; }
+  .arrow { text-align: center; font-family: var(--pixel); font-size: 42px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
+  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: var(--pixel); font-size: 22px; }
+  .tally .xpbar { width: min(360px, 60vw); height: 14px; background: #10172f; border: 3px solid var(--edge); }
+  .tally .xpbar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 18px, #6cbf38 18px 21px); box-shadow: 0 0 12px rgba(138,224,79,.6); }
+  .flying { position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none; object-fit: contain; }
+  .bit { position: fixed; left: 0; top: 0; z-index: 200; pointer-events: none; margin: -3px 0 0 -3px; box-shadow: 1px 1px 0 rgba(0,0,0,.35); }
+  .hero canvas { cursor: pointer; }
+  .hint { position: absolute; z-index: 3; right: 24px; bottom: 70px; font-size: 13px; color: var(--muted); }
+  @media (max-width: 860px) { .boards { grid-template-columns: 1fr; } .arrow { rotate: 90deg; } .story .stage { height: auto; padding: 90px 0; } .hint { display: none; } }
+
+  /* the language picker and the small things the original page had */
+  select.lang { height: 42px; padding: 0 10px; font: 600 14px "Rubik", sans-serif; color: var(--text); background: var(--slab); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo); cursor: pointer; }
+  select.lang option { background: var(--slab); }
+  .hero h1 em { font-style: normal; }
+  .hero .tags { margin: 22px 0 0; font-size: 13px; color: #8f98c2; max-width: 60ch; }
+  .shots figure { margin: 0; }
+  /* ratings */
+  .rate-box { max-width: 480px; margin: 0 auto; text-align: center; display: grid; gap: 10px; justify-items: center; padding: 30px; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); }
+  .avg { display: flex; align-items: baseline; gap: 12px; }
+  .avg b { font-family: var(--pixel); font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
+  .stars { color: var(--xp); letter-spacing: 2px; font-size: 22px; } .stars .off { color: #3a4885; }
+  .pick-stars { display: flex; gap: 6px; }
+  .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s; }
+  .pick-stars button.on { color: var(--xp); text-shadow: 0 0 12px rgba(244,211,75,.5); }
+  .msg { font-size: 15px; color: var(--muted); } .msg.err { color: #ff6b5e; }
+  #rate h2, .final h2 { margin-inline: auto; text-align: center; }
+  .dl-count { color: var(--muted); font-size: 16px; margin: -16px 0 24px; }
+  .hero .dl-count { display: inline; margin: 0; color: inherit; }
+  [dir=rtl] .hint { right: auto; left: 24px; }
+  [dir=rtl] .walker { left: auto; right: 6px; }
+  [dir=rtl] .arrow { transform: scaleX(-1); }
+  #tallyN { direction: ltr; unicode-bidi: isolate; }
+  [dir=rtl] .story .board header .ver { margin-inline-start: auto; }
+  @media (max-width: 860px) { select.lang { margin-inline-start: auto; } }
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <g id="mhG"><path d="M76 128l40 20-40 20-40-20z" fill="#6CC24A"/><path d="M36 148l40 20v46l-40-20z" fill="#8B5A2B"/><path d="M116 148l-40 20v46l40-20z" fill="#6B4423"/><path d="M36 148l40 20v12l-40-20z" fill="#5DAA3C"/><path d="M116 148l-40 20v12l40-20z" fill="#4E9433"/></g>
-  <symbol id="logo" viewBox="0 0 256 256"><rect x="8" y="8" width="240" height="240" rx="56" fill="#4FA3E0"/><rect x="20" y="214" width="216" height="22" rx="11" fill="#3B8BC9"/><use href="#mhG" opacity=".55"/><use href="#mhG" transform="translate(104 0)"/><path d="M76 118C80 52 166 36 180 96" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/><path d="M160 94L181 124 202 92Z" fill="#fff" stroke="#fff" stroke-width="10" stroke-linejoin="round"/></symbol>
-</defs></svg>
-
-<nav aria-label="Main">
-  <div class="wrap">
-    <a class="brand" href="#top"><svg><use href="#logo"/></svg>ModHop</a>
-    <div class="links"><a href="#features">תכונות</a><a href="#launchers">לאנצ'רים</a><a href="#how">איך זה עובד</a><a href="#faq">שאלות</a></div>
-    <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="https://modhop.github.io/">English</option><option value="https://modhop.github.io/he/" selected>עברית</option><option value="https://modhop.github.io/zh/">中文</option><option value="https://modhop.github.io/hi/">हिन्दी</option><option value="https://modhop.github.io/es/">Español</option><option value="https://modhop.github.io/ar/">العربية</option><option value="https://modhop.github.io/fr/">Français</option></select>
-    <a class="btn btn-sm" href="https://da.gd/ModHop">הורדה</a>
-  </div>
-</nav>
+<div id="wipe" aria-hidden="true"></div>
+<nav id="nav" aria-label="Main"><div class="wrap">
+  <a class="brand" href="#top"><img src="../logo.png" alt="">ModHop</a>
+  <div class="links"><a href="#features">תכונות</a><a href="#launchers">לאנצ'רים</a><a href="#how">איך זה עובד</a><a href="#faq">שאלות</a></div>
+  <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="https://modhop.github.io/">English</option><option value="https://modhop.github.io/he/" selected>עברית</option><option value="https://modhop.github.io/zh/">中文</option><option value="https://modhop.github.io/hi/">हिन्दी</option><option value="https://modhop.github.io/es/">Español</option><option value="https://modhop.github.io/ar/">العربية</option><option value="https://modhop.github.io/fr/">Français</option></select>
+  <a class="dl" href="https://da.gd/ModHop">הורדה</a>
+</div></nav>
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <svg class="logo-big" aria-hidden="true"><use href="#logo"/></svg>
-    <div class="eyebrow">ModHop · מנהל ומעדכן מודים חינמי למיינקראפט, לכל לאנצ'ר</div>
+  <canvas id="world" aria-hidden="true"></canvas>
+  <div class="wrap"><div class="copy">
     <h1>העבר את המודים שלך ל<em>כל גרסה</em> או לאנצ'ר</h1>
-    <p class="lead">ModHop מעביר את המודים, חבילות המשאבים וההגדרות שלך בין Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge ו-Minecraft Launcher. הוא מוצא לכל מוד את הגרסה הנכונה לגרסת המיינקראפט החדשה ומוסיף את המודים שהוא צריך.<span id="dlCountTop" data-t=" הורד כבר {n} פעמים." hidden></span></p>
-    <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>הורדה ל-Windows</a>
+    <p>ModHop מעביר את המודים, חבילות המשאבים וההגדרות שלך בין Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge ו-Minecraft Launcher. הוא מוצא לכל מוד את הגרסה הנכונה לגרסת המיינקראפט החדשה ומוסיף את המודים שהוא צריך.<span id="dlCountTop" class="dl-count" data-t=" הורד כבר {n} פעמים." hidden></span></p>
+    <a class="dl" id="download" href="https://da.gd/ModHop">הורדה ל-Windows</a>
+    <div class="facts"><span>גרסה 1.4.26</span><span>חינם</span><span>Windows 10 ו-11</span><span>מתעדכן לבד</span><span>7 שפות</span></div>
     <p class="tags">מעדכן מודים למיינקראפט · העברת מודפקים · מודים ל-Fabric, Forge, NeoForge ו-Quilt · פרופילים של Dawn, Modrinth App, Prism Launcher ו-CurseForge</p>
-    <div class="dl-meta"><span>גרסה 1.4.26</span><span>חינם</span><span>Windows 10 ו-11</span><span>מתעדכן לבד</span><span>7 שפות</span></div>
-  </div>
-  <div class="grass-edge" aria-hidden="true"></div>
+  </div></div>
+  <div class="ground"></div>
+  <div class="hint">לחצו על האיים כדי לשלוח בלוק</div>
 </header>
 
-<section id="shots">
+<section class="story" id="story">
+  <div class="wrap stage">
+    <h2>ככה פרופיל עובר</h2>
+    <p class="lead">ארבעה-עשר מודים יוצאים מ-Modrinth App בגרסה 1.21.11 ונוחתים ב-Dawn בגרסה 26.3, וכל אחד מוחלף בגרסה שנבנתה ל-26.3.</p>
+    <div class="boards">
+      <div class="board" id="fromBoard"><header><img src="../img/icons/modrinth.png" alt="">Survival<span class="ver">1.21.11</span></header><div class="cells" id="fromCells"></div></div>
+      <div class="arrow" aria-hidden="true">⇨</div>
+      <div class="board" id="toBoard"><header><img src="../img/icons/dawn.png" alt="">Survival<span class="ver">26.3</span></header><div class="cells" id="toCells"></div></div>
+    </div>
+    <div class="tally"><span id="tallyN">0 / 14</span><span class="xpbar"><i id="tallyBar"></i></span></div>
+  </div>
+</section>
+
+<section class="dirt" id="shots">
   <div class="wrap">
-    <div class="head"><div class="eyebrow">ככה זה נראה</div><h2>כל הפרופילים שלך, במרחק לחיצה</h2></div>
+    <h2>כל הפרופילים שלך, במרחק לחיצה</h2>
     <div class="shots">
-      <figure><img src="../img/shot-profiles.jpg" alt="ModHop מציג שישה פרופילים של Fabric עם התפריט פתוח: העברת מודים, העתקת הגדרות, שליחה לחבר, שליחת חבילות משאבים, בדיקה ותיקון של מודים" width="800" height="523" loading="lazy"><figcaption>לחיצה ימנית על פרופיל כדי להעביר את המודים שלו, להעתיק את ההגדרות שלו או לשלוח אותו לחבר.</figcaption></figure>
-      <figure><img src="../img/shot-friends.jpg" alt="לשונית החברים ב-ModHop עם בקשת חברות, פרופיל שהתקבל עם 24 מודים ו-2 חבילות משאבים, ורשימת חברים" width="800" height="523" loading="lazy"><figcaption>חברים שולחים לך פרופילים וחבילות משאבים. לוחצים על הורדה ובוחרים לאנצ'ר.</figcaption></figure>
+      <figure class="frame"><img src="../img/shot-profiles.jpg" alt="ModHop מציג שישה פרופילים של Fabric עם התפריט פתוח: העברת מודים, העתקת הגדרות, שליחה לחבר, שליחת חבילות משאבים, בדיקה ותיקון של מודים" width="800" height="523" loading="lazy"><figcaption>לחיצה ימנית על פרופיל כדי להעביר את המודים שלו, להעתיק את ההגדרות שלו או לשלוח אותו לחבר.</figcaption></figure>
+      <figure class="frame"><img src="../img/shot-friends.jpg" alt="לשונית החברים ב-ModHop עם בקשת חברות, פרופיל שהתקבל עם 24 מודים ו-2 חבילות משאבים, ורשימת חברים" width="800" height="523" loading="lazy"><figcaption>חברים שולחים לך פרופילים וחבילות משאבים. לוחצים על הורדה ובוחרים לאנצ'ר.</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section id="launchers" class="band">
+<section class="stone" id="launchers">
   <div class="wrap">
-    <div class="head"><div class="eyebrow">עובד עם</div><h2>כל גרסה, כל לאנצ'ר</h2><p class="lead">ModHop עובד עם כל גרסת מיינקראפט וכל loader של מודים. הוא מוצא לבד את הלאנצ'רים במחשב שלך וקורא את הפרופילים שלהם, כך שאפשר להעביר פרופיל מלאנצ'ר אחד לאחר.</p></div>
-    <div class="launchers" style="margin-bottom:14px"><span>כל גרסת מיינקראפט</span><span>Fabric</span><span>Forge</span><span>NeoForge</span><span>Quilt</span></div>
-    <div class="launchers"><span>Dawn</span><span>Modrinth App</span><span>Prism Launcher</span><span>MultiMC</span><span>PolyMC</span><span>CurseForge</span><span>ATLauncher</span><span>Minecraft Launcher</span></div>
+    <h2>כל גרסה, כל לאנצ'ר</h2>
+    <p class="lead">ModHop עובד עם כל גרסת מיינקראפט וכל loader של מודים. הוא מוצא לבד את הלאנצ'רים במחשב שלך וקורא את הפרופילים שלהם, כך שאפשר להעביר פרופיל מלאנצ'ר אחד לאחר.</p>
+    <div class="hotbar">
+      <div class="slot" tabindex="0"><img src="../img/icons/dawn.png" alt="Dawn"><span class="tip">Dawn</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/modrinth.png" alt="Modrinth App"><span class="tip">Modrinth App</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/prism.png" alt="Prism Launcher"><span class="tip">Prism Launcher</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/curseforge.png" alt="CurseForge"><span class="tip">CurseForge</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/multimc.png" alt="MultiMC"><span class="tip">MultiMC</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/polymc.png" alt="PolyMC"><span class="tip">PolyMC</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/atlauncher.png" alt="ATLauncher"><span class="tip">ATLauncher</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/feather.png" alt="Feather Client"><span class="tip">Feather Client</span></div>
+      <div class="slot" tabindex="0"><img src="../img/icons/official.png" alt="Minecraft Launcher"><span class="tip">Minecraft Launcher</span></div>
+    </div>
+    <div class="loaders"><span>כל גרסת מיינקראפט</span><span>Fabric</span><span>Forge</span><span>NeoForge</span><span>Quilt</span></div>
   </div>
 </section>
 
 <section id="features">
   <div class="wrap">
-    <div class="head"><div class="eyebrow">תכונות</div><h2>מעדכנים מודים בלי לשבור את המשחק</h2></div>
-    <div class="features">
-      <div class="feature"><div class="px" style="background:var(--grass)">↑</div><h3>עדכון לגרסת מיינקראפט חדשה</h3><p>בוחרים פרופיל וגרסה חדשה יותר. ModHop מוריד מ-Modrinth את הגרסה של כל מוד שנבנתה לגרסה הזאת.</p></div>
-      <div class="feature"><div class="px" style="background:var(--blue)">⇄</div><h3>מעבר בין לאנצ'רים</h3><p>מעבירים פרופיל מ-Modrinth App ל-Dawn, מ-CurseForge ל-Prism או להפך, עם אותם מודים.</p></div>
-      <div class="feature"><div class="px" style="background:var(--dirt)">+</div><h3>מוסיף מודים חסרים</h3><p>כשמוד צריך מוד אחר כדי לרוץ, ModHop מוסיף אותו. מודים שהיו מקריסים את המשחק נשארים בחוץ, עם הסבר.</p></div>
-      <div class="feature"><div class="px" style="background:var(--gold);color:#2a1f00">▦</div><h3>חבילות משאבים והגדרות</h3><p>חבילות המשאבים, הגדרות המשחק, הגדרות המודים ורשימת השרתים שלך עוברים יחד.</p></div>
-      <div class="feature"><div class="px" style="background:#8b6fd6">♥</div><h3>שליחת פרופילים לחברים</h3><p>שולחים פרופיל, או רק חבילות משאבים, לחבר לפי שם המשתמש שלו במיינקראפט. הוא מוריד אותו ללאנצ'ר שהוא בוחר.</p></div>
-      <div class="feature"><div class="px" style="background:#3aa7a3">✓</div><h3>בטוח מההתחלה</h3><p>ההורדות מגיעות רק מ-Modrinth ונבדקות. קבצים שמוחלפים נשמרים בגיבוי, והעדכונים של ModHop חתומים.</p></div>
+    <h2>מעדכנים מודים בלי לשבור את המשחק</h2>
+    <div class="inv">
+      <div class="item"><div class="ico">↑</div><div><h3>עדכון לגרסת מיינקראפט חדשה</h3><p>בוחרים פרופיל וגרסה חדשה יותר. ModHop מוריד מ-Modrinth את הגרסה של כל מוד שנבנתה לגרסה הזאת.</p></div></div>
+      <div class="item"><div class="ico">⇄</div><div><h3>מעבר בין לאנצ'רים</h3><p>מעבירים פרופיל מ-Modrinth App ל-Dawn, מ-CurseForge ל-Prism או להפך, עם אותם מודים.</p></div></div>
+      <div class="item"><div class="ico">+</div><div><h3>מוסיף מודים חסרים</h3><p>כשמוד צריך מוד אחר כדי לרוץ, ModHop מוסיף אותו. מודים שהיו מקריסים את המשחק נשארים בחוץ, עם הסבר.</p></div></div>
+      <div class="item"><div class="ico">▦</div><div><h3>חבילות משאבים והגדרות</h3><p>חבילות המשאבים, הגדרות המשחק, הגדרות המודים ורשימת השרתים שלך עוברים יחד.</p></div></div>
+      <div class="item"><div class="ico">♥</div><div><h3>שליחת פרופילים לחברים</h3><p>שולחים פרופיל, או רק חבילות משאבים, לחבר לפי שם המשתמש שלו במיינקראפט. הוא מוריד אותו ללאנצ'ר שהוא בוחר.</p></div></div>
+      <div class="item"><div class="ico">✓</div><div><h3>בטוח מההתחלה</h3><p>ההורדות מגיעות רק מ-Modrinth ונבדקות. קבצים שמוחלפים נשמרים בגיבוי, והעדכונים של ModHop חתומים.</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="how" class="band">
+<section class="stone" id="how">
   <div class="wrap">
-    <div class="head"><div class="eyebrow">איך זה עובד</div><h2>שלוש לחיצות לפרופיל שעובד</h2></div>
+    <h2>שלוש לחיצות לפרופיל שעובד</h2>
     <div class="steps">
-      <div class="step"><h3>בוחרים פרופיל</h3><p>ModHop מציג את הפרופילים של כל הלאנצ'רים שלך. לחיצה ימנית על זה שרוצים להעביר.</p></div>
-      <div class="step"><h3>בוחרים לאן</h3><p>בוחרים גרסה אחרת או לאנצ'ר אחר, ואת המודים וחבילות המשאבים שיעברו.</p></div>
-      <div class="step"><h3>משחקים</h3><p>ModHop מוריד את הקבצים הנכונים ומראה מה השתנה. פותחים את הלאנצ'ר ומשחקים.</p></div>
+      <div class="path"></div><div class="walker" id="walker"></div>
+      <div class="step"><b>1</b><h3>בוחרים פרופיל</h3><p>ModHop מציג את הפרופילים של כל הלאנצ'רים שלך. לחיצה ימנית על זה שרוצים להעביר.</p></div>
+      <div class="step"><b>2</b><h3>בוחרים לאן</h3><p>בוחרים גרסה אחרת או לאנצ'ר אחר, ואת המודים וחבילות המשאבים שיעברו.</p></div>
+      <div class="step"><b>3</b><h3>משחקים</h3><p>ModHop מוריד את הקבצים הנכונים ומראה מה השתנה. פותחים את הלאנצ'ר ומשחקים.</p></div>
     </div>
   </div>
 </section>
 
 <section id="rate">
   <div class="wrap">
-    <div class="head" style="text-align:center;justify-items:center"><div class="eyebrow">דירוגים</div><h2>מה דעתך על ModHop?</h2></div>
+    <h2>מה דעתך על ModHop?</h2>
     <div class="rate-box">
       <div class="avg"><b id="rateAvg">–</b><span class="stars" id="rateStars" aria-hidden="true"><span class="off">★★★★★</span></span></div>
       <div class="msg" id="rateCount" data-one="דירוג אחד" data-many="{n} דירוגים">אין עדיין דירוגים. תהיה הראשון!</div>
@@ -268,14 +317,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   </div>
 </section>
 
-<section id="faq" class="band">
-  <div class="wrap">
-    <div class="head"><div class="eyebrow">שאלות</div><h2>שאלות נפוצות</h2></div>
-    <details><summary>ModHop חינמי?</summary><p>כן. ModHop חינמי, בלי פרסומות ובלי חשבון.</p></details>
-    <details><summary>זה ישנה את הפרופילים שכבר יש לי?</summary><p>רק את הפרופיל שבחרת כיעד. קבצים שמוחלפים מועתקים קודם לתיקיית גיבוי. פרופיל שחבר שולח לך תמיד נכנס כפרופיל חדש.</p></details>
-    <details><summary>מאיפה המודים מגיעים?</summary><p>מ-Modrinth. ModHop בודק את ה-hash של כל קובץ לפני שהוא משתמש בו. מודים שלא נמצאים ב-Modrinth מוצגים ברשימה, כדי שתוכל להוסיף אותם בעצמך.</p></details>
-    <details><summary>למה Windows או הדפדפן מזהירים על הקובץ?</summary><p>ModHop חדש ועוד לא חתום בתעודה בתשלום, ולכן Windows והדפדפנים לא מכירים אותו. בוחרים 'שמור' (Keep), או 'מידע נוסף' ואז 'הפעל בכל זאת' (More info, Run anyway).</p></details>
-    <details><summary>זה עובד עם Forge ו-NeoForge?</summary><p>כן, בלאנצ'רים שתומכים בהם. הפרופילים של Dawn משתמשים ב-Fabric, ולכן פרופילים של Forge ו-NeoForge עוברים ללאנצ'רים כמו Modrinth App או Prism Launcher.</p></details>
+<section class="stone" id="faq">
+  <div class="wrap faq">
+    <h2>שאלות נפוצות</h2>
+    <details><summary>ModHop חינמי?</summary><div class="a"><p>כן. ModHop חינמי, בלי פרסומות ובלי חשבון.</p></div></details>
+    <details><summary>זה ישנה את הפרופילים שכבר יש לי?</summary><div class="a"><p>רק את הפרופיל שבחרת כיעד. קבצים שמוחלפים מועתקים קודם לתיקיית גיבוי. פרופיל שחבר שולח לך תמיד נכנס כפרופיל חדש.</p></div></details>
+    <details><summary>מאיפה המודים מגיעים?</summary><div class="a"><p>מ-Modrinth. ModHop בודק את ה-hash של כל קובץ לפני שהוא משתמש בו. מודים שלא נמצאים ב-Modrinth מוצגים ברשימה, כדי שתוכל להוסיף אותם בעצמך.</p></div></details>
+    <details><summary>למה Windows או הדפדפן מזהירים על הקובץ?</summary><div class="a"><p>ModHop חדש ועוד לא חתום בתעודה בתשלום, ולכן Windows והדפדפנים לא מכירים אותו. בוחרים 'שמור' (Keep), או 'מידע נוסף' ואז 'הפעל בכל זאת' (More info, Run anyway).</p></div></details>
+    <details><summary>זה עובד עם Forge ו-NeoForge?</summary><div class="a"><p>כן, בלאנצ'רים שתומכים בהם. הפרופילים של Dawn משתמשים ב-Fabric, ולכן פרופילים של Forge ו-NeoForge עוברים ללאנצ'רים כמו Modrinth App או Prism Launcher.</p></div></details>
   </div>
 </section>
 
@@ -283,13 +332,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   <div class="wrap">
     <h2>מוכן להעביר את המודים שלך?</h2>
     <p class="dl-count" id="dlCount" data-t="הורד {n} פעמים" hidden></p>
-    <a class="btn btn-xl" href="https://da.gd/ModHop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>הורדה ל-Windows</a>
+    <div class="xp"><i id="xp"></i></div>
+    <a class="dl" href="https://da.gd/ModHop">הורדה ל-Windows</a>
   </div>
 </section>
 
 <footer><div class="wrap"><span>ModHop 1.4.26 · מנהל מודים למיינקראפט ל-Windows</span><span>לא קשור ל-Mojang, ל-Microsoft או לאף לאנצ'ר.</span></div></footer>
-
-
 
 <script>
 const LANG = document.documentElement.lang;
@@ -352,6 +400,204 @@ const fill = (el, n) => el.dataset.t.replace('{n}', n.toLocaleString(LANG));
     }
   } catch {}
 })();
+</script>
+<script src="../img/vendor/gsap.min.js"></script>
+<script src="../img/vendor/ScrollTrigger.min.js"></script>
+<script type="module">
+// img/ as the page sees it (one folder up on the language pages)
+const IMG = document.querySelector('script[src$="gsap.min.js"]').src.replace(/vendor\/gsap\.min\.js$/, '');
+const THREE = await import(IMG + 'vendor/three.module.min.js');
+const RTL = document.documentElement.dir === 'rtl';
+gsap.registerPlugin(ScrollTrigger);
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- the hero world: two floating islands, blocks hopping from one to the other ----------
+const canvas = document.getElementById('world');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 200);
+scene.add(new THREE.HemisphereLight(0xbcd8ff, 0x2b1d3a, 1.5));
+const sun = new THREE.DirectionalLight(0xffe2b0, 2.2); sun.position.set(-6, 12, 8); scene.add(sun);
+
+// pixel textures (16x16, made here)
+function tex(draw) { const c = document.createElement('canvas'); c.width = c.height = 16; draw(c.getContext('2d')); const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.colorSpace = THREE.SRGBColorSpace; return t; }
+let seed = 9; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const noise = (x, base, v) => { for (let i = 0; i < 16; i++) for (let j = 0; j < 16; j++) { const k = 1 + (rnd() - .5) * v; x.fillStyle = `rgb(${base[0] * k | 0},${base[1] * k | 0},${base[2] * k | 0})`; x.fillRect(i, j, 1, 1); } };
+const top = tex(x => noise(x, [110, 190, 70], .3));
+const side = tex(x => { noise(x, [134, 92, 58], .32); for (let i = 0; i < 16; i++) { const d = 3 + (rnd() * 3 | 0); for (let j = 0; j < d; j++) { const k = 1 + (rnd() - .5) * .25; x.fillStyle = `rgb(${110 * k | 0},${190 * k | 0},${70 * k | 0})`; x.fillRect(i, j, 1, 1); } } });
+const dirt = tex(x => noise(x, [134, 92, 58], .32));
+const stone = tex(x => noise(x, [120, 122, 138], .25));
+const M = t => new THREE.MeshLambertMaterial({ map: t });
+const grassMat = [M(side), M(side), M(top), M(dirt), M(side), M(side)];
+const box = new THREE.BoxGeometry(1, 1, 1);
+
+function island(cx, cz, r, seedVal) {
+  seed = seedVal;
+  const g = new THREE.Group(); const cells = [];
+  for (let x = -r; x <= r; x++) for (let z = -r; z <= r; z++) {
+    const d = Math.hypot(x, z); if (d > r + .3) continue;
+    cells.push(['g', x, 0, z]);
+    const depth = Math.max(1, Math.round((r - d) * 1.1 + rnd() * 1.5));
+    for (let y = 1; y <= depth; y++) cells.push([y > 2 ? 's' : 'd', x, -y, z]);
+  }
+  for (const kind of ['g', 'd', 's']) {
+    const list = cells.filter(c => c[0] === kind); if (!list.length) continue;
+    const mesh = new THREE.InstancedMesh(box, kind === 'g' ? grassMat : M(kind === 'd' ? dirt : stone), list.length);
+    const o = new THREE.Object3D();
+    list.forEach((c, i) => { o.position.set(c[1], c[2], c[3]); o.updateMatrix(); mesh.setMatrixAt(i, o.matrix); });
+    g.add(mesh);
+  }
+  g.position.set(cx, 0, cz); scene.add(g); return g;
+}
+const A = island(-4.6, 0, 3, 11), B = island(4.6, 0, 3, 23);
+
+// the hopping blocks: each one arcs from island A to island B, lands with a squash, and starts again
+const hoppers = [];
+const hopMesh = () => { const m = new THREE.Mesh(box, grassMat); m.scale.setScalar(.7); scene.add(m); return m; };
+const arc = (m, t0) => {
+  const z = (rnd() - .5) * 3, sx = -4.6 + (rnd() - .5) * 2.4, ex = 4.6 + (rnd() - .5) * 2.4;
+  const tl = gsap.timeline({ repeat: -1, delay: t0, repeatDelay: .4 });
+  const s = { p: 0 };
+  tl.set(m.scale, { x: .7, y: .7, z: .7 })
+    .to(s, { p: 1, duration: 1.5, ease: 'power1.inOut', onUpdate: () => {
+      m.position.set(sx + (ex - sx) * s.p, 1.05 + Math.sin(s.p * Math.PI) * 4.2, z);
+      m.rotation.set(s.p * Math.PI * 2, s.p * Math.PI, 0);
+    } })
+    .to(m.scale, { y: .45, x: .85, z: .85, duration: .08, ease: 'power2.out' })
+    .to(m.scale, { y: .7, x: .7, z: .7, duration: .25, ease: 'back.out(3)' })
+    .to(m.scale, { x: 0, y: 0, z: 0, duration: .25, delay: .3, ease: 'back.in(2)' });
+  return tl;
+};
+seed = 77;
+for (let i = 0; i < 6; i++) { const m = hopMesh(); m.position.set(-99, 0, 0); hoppers.push(arc(m, i * .45)); }
+
+function resize() {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  renderer.setSize(w, h, false); camera.aspect = w / h;
+  // the islands sit on the right half on wide screens, lower on narrow ones, so the text stays readable
+  const wide = w > 860;
+  camera.position.set(wide ? (RTL ? 8.5 : -8.5) : 0, wide ? 6.5 : 11, wide ? 31 : 34);
+  camera.lookAt(wide ? (RTL ? 8.5 : -8.5) : 0, wide ? 1.5 : 8.5, 0);
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+let mx = 0, my = 0;
+addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+const clock = new THREE.Clock();
+gsap.ticker.add(() => {
+  const t = clock.getElapsedTime();
+  A.position.y = Math.sin(t * .8) * .25; B.position.y = Math.sin(t * .8 + 1.6) * .25;
+  scene.rotation.y += ((mx * .25) - scene.rotation.y) * .04;
+  scene.rotation.x += ((my * .08) - scene.rotation.x) * .04;
+  renderer.render(scene, camera);
+});
+if (still) { hoppers.forEach(h => h.pause()); gsap.ticker.sleep && null; }
+
+// ---------- the one load sequence: headline lines rise in, then the copy ----------
+if (!still) {
+  gsap.timeline({ defaults: { ease: 'power4.out' } })
+    .from('.hero h1', { y: 40, autoAlpha: 0, duration: 1 })
+    .from('.hero p, .hero .dl, .hero .facts', { y: 24, autoAlpha: 0, duration: .7, stagger: .08 }, '-=.6')
+    .from(canvas, { autoAlpha: 0, duration: 1.2, ease: 'power2.out' }, 0)
+    .from('.ground', { yPercent: 100, duration: .6, ease: 'power3.out' }, .3);
+
+  // the steps: a grass block walks the path as you scroll through them, hopping onto each number
+  const walker = document.getElementById('walker');
+  gsap.timeline({ scrollTrigger: { trigger: '.steps', start: 'top 75%', end: 'bottom 55%', scrub: .6 } })
+    .to(walker, { x: () => (RTL ? -1 : 1) * (document.querySelector('.path').offsetWidth - 40), ease: 'none', duration: 1 })
+    .to(walker, { keyframes: { y: [0, -26, 0, -26, 0, -26, 0], rotation: [0, 90, 90, 180, 180, 270, 270] }, ease: 'none', duration: 1 }, 0);
+  gsap.from('.step b', { scrollTrigger: { trigger: '.steps', start: 'top 70%' }, scale: 0, duration: .5, stagger: .18, ease: 'back.out(3)' });
+
+  // launchers: slots fill the hotbar one by one when it comes into view
+  gsap.from('.slot', { scrollTrigger: { trigger: '.hotbar', start: 'top 80%' }, y: -40, autoAlpha: 0, duration: .45, stagger: .05, ease: 'back.out(2.4)' });
+
+  // the XP bar fills as the last section comes into view
+  gsap.to('#xp', { width: '100%', ease: 'none', scrollTrigger: { trigger: '.final', start: 'top 80%', end: 'center 60%', scrub: true } });
+}
+
+// faq: answers open and close smoothly
+document.querySelectorAll('details').forEach(d => {
+  const a = d.querySelector('.a');
+  d.querySelector('summary').addEventListener('click', e => {
+    if (still) return;
+    e.preventDefault();
+    if (d.open) gsap.to(a, { height: 0, duration: .3, ease: 'power2.inOut', onComplete: () => { d.open = false; gsap.set(a, { clearProps: 'height' }); } });
+    else { d.open = true; gsap.from(a, { height: 0, duration: .35, ease: 'power2.out', clearProps: 'height' }); }
+  });
+});
+
+// ---------- clicks: pixel bits fly off buttons and slots ----------
+const bits = (x, y, colors, n) => { for (let i = 0; i < n; i++) {
+  const b = document.createElement('span'); b.className = 'bit'; b.style.background = colors[i % colors.length]; document.body.appendChild(b);
+  const a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 50, sz = 4 + Math.random() * 5;
+  gsap.set(b, { x, y, width: sz, height: sz });
+  gsap.timeline({ onComplete: () => b.remove() })
+    .to(b, { x: x + Math.cos(a) * d, y: y + Math.sin(a) * d - 20, rotation: Math.random() * 360, duration: .35, ease: 'power2.out' })
+    .to(b, { y: '+=50', autoAlpha: 0, duration: .45, ease: 'power2.in' }); } };
+if (!still) document.addEventListener('pointerdown', e => {
+  const el = e.target.closest('.dl, .slot, summary, .links a, .brand');
+  if (!el) return;
+  gsap.fromTo(el, { scale: .94 }, { scale: 1, duration: .5, ease: 'elastic.out(1.1, .45)', clearProps: 'scale' });
+  bits(e.clientX, e.clientY, el.matches('.dl') ? ['#7bcb4f', '#a3e675', '#8b5a2b', '#5c3a1c'] : ['#f4d34b', '#62b6f2', '#eef1ff'], el.matches('.dl') ? 14 : 8);
+});
+
+// ---------- block wipe: on load, and when jumping to a section ----------
+const wipe = document.getElementById('wipe');
+const size = innerWidth < 600 ? 56 : 80, cols = Math.ceil(innerWidth / size), rows = Math.ceil(innerHeight / size);
+wipe.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+wipe.innerHTML = '<i></i>'.repeat(cols * rows);
+const tiles = wipe.children;
+const order = { grid: [rows, cols], from: 'start', amount: .45 };
+if (still) gsap.set(tiles, { autoAlpha: 0 });
+else gsap.to(tiles, { yPercent: 120, rotation: () => gsap.utils.random(-25, 25), autoAlpha: 0, duration: .55, ease: 'power2.in', stagger: order, delay: .1 });
+document.querySelectorAll('.links a, .brand, nav .dl').forEach(a => a.addEventListener('click', e => {
+  const target = document.querySelector(a.getAttribute('href'));
+  if (!target || still) return;
+  e.preventDefault();
+  gsap.timeline()
+    .fromTo(tiles, { yPercent: -120, rotation: 0, autoAlpha: 1 }, { yPercent: 0, duration: .4, ease: 'power3.out', stagger: { ...order, amount: .3 } })
+    .add(() => { document.documentElement.style.scrollBehavior = 'auto'; target.scrollIntoView(); document.documentElement.style.scrollBehavior = ''; ScrollTrigger.update(); })
+    .to(tiles, { yPercent: 120, rotation: () => gsap.utils.random(-25, 25), autoAlpha: 0, duration: .5, ease: 'power2.in', stagger: { grid: [rows, cols], from: 'end', amount: .35 } }, '+=.05');
+}));
+
+// ---------- the transfer story: mods fly from one inventory to the other as you scroll ----------
+const mods = await (await fetch(IMG + 'mods/list.json')).json();
+const fromCells = document.getElementById('fromCells'), toCells = document.getElementById('toCells');
+fromCells.innerHTML = toCells.innerHTML = '<div class="cell"></div>'.repeat(14);
+mods.forEach((m, i) => { fromCells.children[i].innerHTML = `<img src="${IMG + m.file}" alt="${m.title}">`; });
+if (!still) {
+  const fly = [];
+  const st = gsap.timeline({ scrollTrigger: { trigger: '#story', start: 'top top', end: '+=1800', pin: true, scrub: .6 } });
+  mods.forEach((m, i) => {
+    const src = fromCells.children[i].querySelector('img');
+    const ghost = document.createElement('img'); ghost.src = IMG + m.file; ghost.className = 'flying'; ghost.style.opacity = 0; document.body.appendChild(ghost); fly.push(ghost);
+    const p = { t: 0 };
+    st.to(p, { t: 1, duration: 1, ease: 'none', onUpdate() {
+      const a = src.getBoundingClientRect(), b = toCells.children[i].getBoundingClientRect();
+      const t = p.t, e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      const x = a.left + (b.left + (b.width - a.width) / 2 - a.left) * e, y = a.top + (b.top + (b.height - a.height) / 2 - a.top) * e - Math.sin(e * Math.PI) * 160;
+      const flying = t > 0 && t < 1;
+      ghost.style.opacity = flying ? 1 : 0; src.style.opacity = t > 0 ? 0 : 1;
+      ghost.style.width = a.width + 'px'; ghost.style.height = a.height + 'px';
+      ghost.style.transform = `translate(${x}px, ${y}px) rotate(${e * 360}deg) scale(${1 + Math.sin(e * Math.PI) * .4})`;
+      let land = toCells.children[i].querySelector('img');
+      if (t >= 1 && !land) { toCells.children[i].innerHTML = `<img src="${IMG + m.file}" alt="${m.title}">`; land = toCells.children[i].querySelector('img'); gsap.from(land, { scale: 1.5, duration: .3, ease: 'back.out(3)' }); }
+      if (t < 1 && land) land.remove();
+      const done = toCells.querySelectorAll('img').length;
+      document.getElementById('tallyN').textContent = done + ' / 14';
+      document.getElementById('tallyBar').style.width = done / 14 * 100 + '%';
+    } }, i * .55);
+  });
+}
+
+// ---------- the hero: click the islands to send another block over ----------
+canvas.addEventListener('click', () => { if (still) return; const m = hopMesh(); seed = Math.floor(Math.random() * 1e6) + 1; const tl = arc(m, 0); tl.repeat(0); tl.eventCallback('onComplete', () => scene.remove(m)); });
+
+// nav gets a background once you scroll past the top
+ScrollTrigger.create({ start: 80, onToggle: s => document.getElementById('nav').classList.toggle('solid', s.isActive) });
 </script>
 </body>
 </html>
