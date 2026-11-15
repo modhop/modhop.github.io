@@ -128,7 +128,7 @@
   .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 70px; }
   .path { position: absolute; top: 26px; left: 30px; right: 30px; height: 6px; background: repeating-linear-gradient(90deg, var(--horizon) 0 12px, transparent 12px 20px); }
   .walker { position: absolute; top: 2px; left: 6px; width: 30px; height: 30px; background: linear-gradient(var(--grass) 0 34%, var(--dirt) 34%); border: 3px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(255,255,255,.3); }
-  .step b { display: block; font-family: var(--pixel); font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
+  .step b { display: block; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
   .step h3 { margin: 0 0 8px; font-size: 22px; }
   .step p { margin: 0; color: #c3cae8; }
 
@@ -174,12 +174,12 @@
   .board { background: #c6c6c6; border: 3px solid #1c1c1c; box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555; padding: 14px; color: #2b2b2b; }
   .board header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 700; }
   .board header img { width: 28px; height: 28px; }
-  .board .ver { margin-inline-start: auto; font-family: var(--pixel); font-size: 18px; color: #3f3f3f; }
+  .board .ver { margin-inline-start: auto; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 18px; color: #3f3f3f; }
   .cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .cell { aspect-ratio: 1; background: #8b8b8b; box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff; display: grid; place-items: center; }
   .cell img { width: 72%; height: 72%; object-fit: contain; image-rendering: auto; }
   .arrow { text-align: center; font-family: var(--pixel); font-size: 42px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
-  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: var(--pixel); font-size: 22px; }
+  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 22px; }
   .tally .xpbar { width: min(360px, 60vw); height: 14px; background: #10172f; border: 3px solid var(--edge); }
   .tally .xpbar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 18px, #6cbf38 18px 21px); box-shadow: 0 0 12px rgba(138,224,79,.6); }
   .flying { position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none; object-fit: contain; }
@@ -197,7 +197,7 @@
   /* ratings */
   .rate-box { max-width: 480px; margin: 0 auto; text-align: center; display: grid; gap: 10px; justify-items: center; padding: 30px; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); }
   .avg { display: flex; align-items: baseline; gap: 12px; }
-  .avg b { font-family: var(--pixel); font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
+  .avg b { font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
   .stars { color: var(--xp); letter-spacing: 2px; font-size: 22px; } .stars .off { color: #3a4885; }
   .pick-stars { display: flex; gap: 6px; }
   .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s; }
@@ -229,7 +229,7 @@
     <h1>अपने Minecraft मॉड <em>किसी भी वर्ज़न</em> या लॉन्चर में ले जाएँ</h1>
     <p>ModHop आपके मॉड, रिसोर्स पैक और सेटिंग्स को Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge और Minecraft Launcher के बीच ले जाता है। यह नए Minecraft वर्ज़न के लिए हर मॉड का सही बिल्ड ढूँढता है और उनके ज़रूरी मॉड भी जोड़ देता है।<span id="dlCountTop" class="dl-count" data-t=" अब तक {n} बार डाउनलोड हुआ।" hidden></span></p>
     <a class="dl" id="download" href="https://da.gd/ModHop">Windows के लिए डाउनलोड करें</a>
-    <div class="facts"><span>वर्ज़न 1.4.26</span><span>मुफ़्त</span><span>Windows 10 और 11</span><span>ख़ुद अपडेट होता है</span><span>7 भाषाएँ</span></div>
+    <div class="facts"><span>वर्ज़न 1.4.27</span><span>मुफ़्त</span><span>Windows 10 और 11</span><span>ख़ुद अपडेट होता है</span><span>7 भाषाएँ</span></div>
     <p class="tags">Minecraft मॉड अपडेटर · मॉडपैक ट्रांसफ़र · Fabric, Forge, NeoForge और Quilt मॉड · Dawn, Modrinth App, Prism Launcher और CurseForge प्रोफ़ाइल</p>
   </div></div>
   <div class="ground"></div>
@@ -253,8 +253,8 @@
   <div class="wrap">
     <h2>आपकी सारी प्रोफ़ाइल, बस एक क्लिक दूर</h2>
     <div class="shots">
-      <figure class="frame"><img src="../img/shot-profiles.jpg" alt="ModHop में छह Fabric प्रोफ़ाइल और खुला मेन्यू: मॉड ट्रांसफ़र करें, सेटिंग्स कॉपी करें, दोस्त को भेजें, रिसोर्स पैक भेजें, मॉड जाँचें और ठीक करें" width="800" height="523" loading="lazy"><figcaption>किसी प्रोफ़ाइल पर राइट-क्लिक करके उसके मॉड ले जाएँ, उसकी सेटिंग्स कॉपी करें या उसे किसी दोस्त को भेजें।</figcaption></figure>
-      <figure class="frame"><img src="../img/shot-friends.jpg" alt="ModHop का दोस्त टैब, जिसमें एक फ़्रेंड रिक्वेस्ट, 24 मॉड और 2 रिसोर्स पैक वाली मिली हुई प्रोफ़ाइल और दोस्तों की सूची है" width="800" height="523" loading="lazy"><figcaption>दोस्त आपको प्रोफ़ाइल और रिसोर्स पैक भेजते हैं। डाउनलोड पर क्लिक करें और अपना लॉन्चर चुनें।</figcaption></figure>
+      <figure class="frame"><img src="../img/shot-profiles.jpg" alt="ModHop में छह Fabric प्रोफ़ाइल और खुला मेन्यू: मॉड ट्रांसफ़र करें, सेटिंग्स कॉपी करें, दोस्त को भेजें, रिसोर्स पैक भेजें, मॉड जाँचें और ठीक करें" width="1100" height="719" loading="lazy"><figcaption>किसी प्रोफ़ाइल पर राइट-क्लिक करके उसके मॉड ले जाएँ, उसकी सेटिंग्स कॉपी करें या उसे किसी दोस्त को भेजें।</figcaption></figure>
+      <figure class="frame"><img src="../img/shot-friends.jpg" alt="ModHop का दोस्त टैब, जिसमें एक फ़्रेंड रिक्वेस्ट, 24 मॉड और 2 रिसोर्स पैक वाली मिली हुई प्रोफ़ाइल और दोस्तों की सूची है" width="1100" height="719" loading="lazy"><figcaption>दोस्त आपको प्रोफ़ाइल और रिसोर्स पैक भेजते हैं। डाउनलोड पर क्लिक करें और अपना लॉन्चर चुनें।</figcaption></figure>
     </div>
   </div>
 </section>
@@ -337,7 +337,7 @@
   </div>
 </section>
 
-<footer><div class="wrap"><span>ModHop 1.4.26 · Windows के लिए Minecraft मॉड मैनेजर</span><span>Mojang, Microsoft या किसी भी लॉन्चर से संबद्ध नहीं।</span></div></footer>
+<footer><div class="wrap"><span>ModHop 1.4.27 · Windows के लिए Minecraft मॉड मैनेजर</span><span>Mojang, Microsoft या किसी भी लॉन्चर से संबद्ध नहीं।</span></div></footer>
 
 <script>
 const LANG = document.documentElement.lang;
