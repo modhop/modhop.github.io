@@ -128,7 +128,7 @@
   .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 70px; }
   .path { position: absolute; top: 26px; left: 30px; right: 30px; height: 6px; background: repeating-linear-gradient(90deg, var(--horizon) 0 12px, transparent 12px 20px); }
   .walker { position: absolute; top: 2px; left: 6px; width: 30px; height: 30px; background: linear-gradient(var(--grass) 0 34%, var(--dirt) 34%); border: 3px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(255,255,255,.3); }
-  .step b { display: block; font-family: var(--pixel); font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
+  .step b { display: block; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
   .step h3 { margin: 0 0 8px; font-size: 22px; }
   .step p { margin: 0; color: #c3cae8; }
 
@@ -174,12 +174,12 @@
   .board { background: #c6c6c6; border: 3px solid #1c1c1c; box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555; padding: 14px; color: #2b2b2b; }
   .board header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 700; }
   .board header img { width: 28px; height: 28px; }
-  .board .ver { margin-inline-start: auto; font-family: var(--pixel); font-size: 18px; color: #3f3f3f; }
+  .board .ver { margin-inline-start: auto; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 18px; color: #3f3f3f; }
   .cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .cell { aspect-ratio: 1; background: #8b8b8b; box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff; display: grid; place-items: center; }
   .cell img { width: 72%; height: 72%; object-fit: contain; image-rendering: auto; }
   .arrow { text-align: center; font-family: var(--pixel); font-size: 42px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
-  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: var(--pixel); font-size: 22px; }
+  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 22px; }
   .tally .xpbar { width: min(360px, 60vw); height: 14px; background: #10172f; border: 3px solid var(--edge); }
   .tally .xpbar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 18px, #6cbf38 18px 21px); box-shadow: 0 0 12px rgba(138,224,79,.6); }
   .flying { position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none; object-fit: contain; }
@@ -197,7 +197,7 @@
   /* ratings */
   .rate-box { max-width: 480px; margin: 0 auto; text-align: center; display: grid; gap: 10px; justify-items: center; padding: 30px; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); }
   .avg { display: flex; align-items: baseline; gap: 12px; }
-  .avg b { font-family: var(--pixel); font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
+  .avg b { font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
   .stars { color: var(--xp); letter-spacing: 2px; font-size: 22px; } .stars .off { color: #3a4885; }
   .pick-stars { display: flex; gap: 6px; }
   .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s; }
@@ -229,7 +229,7 @@
     <h1>Move your Minecraft mods to <em>any version</em> or launcher</h1>
     <p>ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.<span id="dlCountTop" class="dl-count" data-t=" Downloaded {n} times so far." hidden></span></p>
     <a class="dl" id="download" href="https://da.gd/ModHop">Download for Windows</a>
-    <div class="facts"><span>Version 1.4.26</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
+    <div class="facts"><span>Version 1.4.27</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
     <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
   </div></div>
   <div class="ground"></div>
@@ -253,8 +253,8 @@
   <div class="wrap">
     <h2>All your profiles, one click away</h2>
     <div class="shots">
-      <figure class="frame"><img src="img/shot-profiles.jpg" alt="ModHop listing six Fabric profiles with the menu open: transfer mods, copy settings, send to a friend, send resource packs, check and fix mods" width="800" height="523" loading="lazy"><figcaption>Right-click a profile to move its mods, copy its settings or send it to a friend.</figcaption></figure>
-      <figure class="frame"><img src="img/shot-friends.jpg" alt="The Friends tab in ModHop with a friend request, a received profile with 24 mods and 2 resource packs, and a list of friends" width="800" height="523" loading="lazy"><figcaption>Friends send you profiles and resource packs. Click Get it and pick your launcher.</figcaption></figure>
+      <figure class="frame"><img src="img/shot-profiles.jpg" alt="ModHop listing six Fabric profiles with the menu open: transfer mods, copy settings, send to a friend, send resource packs, check and fix mods" width="1100" height="719" loading="lazy"><figcaption>Right-click a profile to move its mods, copy its settings or send it to a friend.</figcaption></figure>
+      <figure class="frame"><img src="img/shot-friends.jpg" alt="The Friends tab in ModHop with a friend request, a received profile with 24 mods and 2 resource packs, and a list of friends" width="1100" height="719" loading="lazy"><figcaption>Friends send you profiles and resource packs. Click Get it and pick your launcher.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -337,7 +337,7 @@
   </div>
 </section>
 
-<footer><div class="wrap"><span>ModHop 1.4.26 · Minecraft mod manager for Windows</span><span>Not affiliated with Mojang, Microsoft or any launcher.</span></div></footer>
+<footer><div class="wrap"><span>ModHop 1.4.27 · Minecraft mod manager for Windows</span><span>Not affiliated with Mojang, Microsoft or any launcher.</span></div></footer>
 
 <script>
 const LANG = document.documentElement.lang;
