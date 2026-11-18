@@ -230,6 +230,13 @@
   .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s, transform .16s cubic-bezier(.23,1,.32,1); }
   .pick-stars button:active { transform: scale(.92); }
   .pick-stars button.on { color: #f4d34b; text-shadow: 0 0 12px rgba(244,211,75,.5); }
+  /* Send: the same grass button as the app's actions, small, under the stars */
+  .rate-send { font: 600 14px var(--font-text); color: #10240a; background: #7bcb4f; border: 0; border-radius: 6px; padding: 8px 20px; cursor: pointer;
+    box-shadow: inset 2px 2px 0 #a3e675, inset -2px -2px 0 #3e7a22; transition: transform .16s cubic-bezier(.23,1,.32,1), filter .15s, opacity .15s; }
+  .rate-send:hover:not(:disabled) { filter: brightness(1.08); }
+  .rate-send:active:not(:disabled) { transform: scale(.97); }
+  .rate-send:disabled { opacity: .4; cursor: default; }
+  .rate-send:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   .rate-card .msg { color: #a2abd0; margin: 0; } .msg.err { color: #ff6b5e !important; }
   .dl-count { color: var(--muted); margin: 0; }
   /* right-to-left pages (he, ar) */
@@ -517,6 +524,7 @@
           <p class="msg">Your rating:</p>
           <div class="pick-stars" id="pick" role="group" aria-label="Your rating"><button type="button" data-s="1" aria-label="1 star">★</button><button type="button" data-s="2" aria-label="2 stars">★</button><button type="button" data-s="3" aria-label="3 stars">★</button><button type="button" data-s="4" aria-label="4 stars">★</button><button type="button" data-s="5" aria-label="5 stars">★</button></div>
         </div>
+        <button type="button" class="rate-send" id="rateSend" disabled>Send rating</button>
         <p class="msg" id="rateMsg" data-thanks="Thanks! Your rating will show up here within a few hours." data-fail="Couldn't send your rating. Try again later." hidden></p>
       </div>
     </div>
@@ -615,22 +623,33 @@ const fill = (el, n) => el.dataset.t.replace('{n}', n.toLocaleString(LANG));
   }
   const buttons = [...$('pick').querySelectorAll('button')];
   const paint = v => buttons.forEach(b => b.classList.toggle('on', Number(b.dataset.s) <= v));
-  paint(mine);
+  // A star click only picks; the Send button under the stars sends the picked rating.
+  let picked = mine;
+  const send = $('rateSend');
+  paint(picked);
   buttons.forEach(b => {
     b.onmouseenter = () => paint(Number(b.dataset.s));
-    b.onmouseleave = () => paint(mine);
-    b.onclick = async () => {
-      const s = Number(b.dataset.s), msg = $('rateMsg');
-      try {
-        const res = await fetch(RELAY, { method: 'POST', body: JSON.stringify({ v: 1, kind: 'rating', id, stars: s }) });
-        if (!res.ok) throw new Error(res.status);
-        mine = s; paint(mine);
-        try { localStorage.setItem('modhop-rating', String(s)); } catch {}
-        msg.textContent = msg.dataset.thanks; msg.classList.remove('err');
-      } catch { msg.textContent = msg.dataset.fail; msg.classList.add('err'); }
-      msg.hidden = false;
+    b.onmouseleave = () => paint(picked);
+    b.onclick = () => {
+      picked = Number(b.dataset.s); paint(picked);
+      buttons.forEach(x => x.setAttribute('aria-pressed', String(Number(x.dataset.s) === picked)));
+      send.disabled = picked === mine;
+      $('rateMsg').hidden = true;
     };
   });
+  send.onclick = async () => {
+    const s = picked, msg = $('rateMsg');
+    if (!s) return;
+    send.disabled = true;
+    try {
+      const res = await fetch(RELAY, { method: 'POST', body: JSON.stringify({ v: 1, kind: 'rating', id, stars: s }) });
+      if (!res.ok) throw new Error(res.status);
+      mine = s;
+      try { localStorage.setItem('modhop-rating', String(s)); } catch {}
+      msg.textContent = msg.dataset.thanks; msg.classList.remove('err');
+    } catch { msg.textContent = msg.dataset.fail; msg.classList.add('err'); send.disabled = false; }
+    msg.hidden = false;
+  };
   try {
     const r = await (await fetch(DATA, { cache: 'no-cache' })).json();
     if (r.count > 0) {
