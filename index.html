@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-type="software" data-radius="soft" data-ground="sky" data-buttons="tonal" data-motion>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="QtRZL0XjADzHEwSwGdXTZGX1Vj5kNe7svAyJf5yG7o0">
 <title>ModHop – Move your Minecraft mods to any version or launcher</title>
 <meta property="og:site_name" content="ModHop">
@@ -17,327 +17,568 @@
 <link rel="alternate" hreflang="ar" href="https://modhop.github.io/ar/">
 <link rel="alternate" hreflang="fr" href="https://modhop.github.io/fr/">
 <link rel="alternate" hreflang="x-default" href="https://modhop.github.io/">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ModHop – Move your Minecraft mods to any version or launcher">
 <meta property="og:description" content="Free Windows app that updates your Minecraft mods to a new version and moves profiles between launchers.">
 <meta property="og:url" content="https://modhop.github.io/">
-<meta property="og:image" content="https://modhop.github.io/img/share.png">
+<meta property="og:image" content="https://modhop.github.io/img/share-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ModHop","operatingSystem":"Windows 10, Windows 11","applicationCategory":"GameApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":"3.7","ratingCount":"3","bestRating":"5","worstRating":"1"},"description":"Free Minecraft mod manager and mod updater that moves mods, resource packs and settings to any Minecraft version or launcher.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://da.gd/ModHop","url":"https://modhop.github.io/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"modhop.github.io","alternateName":["ModHop","ModHop Minecraft"],"url":"https://modhop.github.io/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ModHop","url":"https://modhop.github.io/","logo":"https://modhop.github.io/logo.png"}</script>
+<meta name="theme-color" content="#eef0f3">
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..600&family=Pixelify+Sans:wght@700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/system.css">
+<link rel="stylesheet" href="/assets/ui/cards.css">
+<link rel="stylesheet" href="/assets/motion/motion.css">
+<link rel="stylesheet" href="/assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="/assets/layout/layout.css">
+<link rel="stylesheet" href="/assets/icons/icon.css">
 <style>
-  :root {
-    --sky-top: #0f1838; --sky: #141f47; --horizon: #2b3a73;
-    --slab: #1d2647; --slab2: #26315c; --edge: #0a0f24;
-    --text: #eef1ff; --muted: #a2abd0;
-    --sky-blue: #62b6f2; --grass: #7bcb4f; --grass-hi: #a3e675; --grass-step: #3e7a22; --dirt: #8b5a2b; --xp: #f4d34b;
-    --hi: rgba(255,255,255,.14); --lo: rgba(3,6,18,.6);
-    --bevel: inset 3px 3px 0 var(--hi), inset -3px -3px 0 var(--lo);
-    --pixel: "Pixelify Sans", ui-monospace, monospace;
+:root {
+  --p-bg: #eef0f3; --p-surface: #e2e5ea; --p-ink: #0b0c0e; --p-muted: #5d6470;
+  --p-accent: #1f2de6; --p-accent-ink: #ffffff; --p-action: #1f2de6; --p-action-ink: #ffffff;
+  --p-inv-bg: #0b0c0e; --p-inv-surface: #17181a; --p-inv-ink: #eef0f3; --p-inv-muted: #8e8f92;
+  --p-inv-accent: #eef0f3; --p-inv-accent-ink: #0b0c0e; --p-inv-action: #eef0f3; --p-inv-action-ink: #0b0c0e;
+  --font-display: "Outfit", "Rubik", system-ui, "Segoe UI", "Nirmala UI", "Microsoft YaHei", sans-serif;
+  --font-text: "Outfit", "Rubik", system-ui, "Segoe UI", "Nirmala UI", "Microsoft YaHei", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-tracking-xl: -0.04em;
+  --ly-scale: 0.98;
+}
+</style>
+<link rel="stylesheet" href="/assets/ui/base.css">
+<link rel="stylesheet" href="/assets/diagrams/diagram.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="/assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="/assets/moments/moments.js">
+<link rel="modulepreload" href="/assets/moments/lib.js">
+<link rel="modulepreload" href="/assets/moments/word-highlight/moment.js">
+<!-- page CSS: only what sits inside a visual (ModHop's own windows), and one --p-h per card group -->
+<style>
+  .hero--centred .hero__lead { color: color-mix(in oklab, var(--ink) 78%, var(--bg)); }
+  /* the logo inline in the h1 */
+  .h1-logo { display: inline-block; width: .82em; height: .82em; vertical-align: -.08em; margin-right: .12em; border-radius: .16em; image-rendering: pixelated; }
+
+  /* ModHop's window: one look for the hero, the profiles frame and the card panels */
+  .mh { --mh-ink: #14161a; --mh-muted: #5d6470; --mh-line: rgb(20 22 26 / .09); --mh-fill: #f4f5f7; --mh-ok: #0d6b3c; --mh-warn: #a35a00; --mh-acc: #1f2de6;
+        background: #fff; color: var(--mh-ink); font: 400 13px/1.4 var(--font-text); border-radius: 12px; overflow: hidden;
+        box-shadow: 0 0 0 1px rgb(20 22 26 / .08), 0 24px 60px -28px rgb(20 30 60 / .45); }
+  .mh__bar { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border-bottom: 1px solid var(--mh-line); color: var(--mh-muted); white-space: nowrap; }
+  .mh__bar img { width: 18px; height: 18px; border-radius: 4px; image-rendering: pixelated; }
+  .mh__bar b { color: var(--mh-ink); font-weight: 500; }
+  .mh__bar .sp { flex: 1; }
+  .mh__body { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 420px; }
+  .mh__list { border-right: 1px solid var(--mh-line); padding: 10px; display: grid; align-content: start; gap: 2px; }
+  .mh__q { height: 32px; margin-bottom: 6px; border-radius: 8px; background: var(--mh-fill); display: flex; align-items: center; padding: 0 10px; color: var(--mh-muted); }
+  .mh__p { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 0 10px; align-items: center; padding: 8px; border-radius: 8px; }
+  .mh__p.is-on { background: color-mix(in oklab, var(--mh-acc) 9%, #fff); }
+  .mh__p img { grid-row: 1 / span 2; width: 28px; height: 28px; border-radius: 6px; }
+  .mh__p b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mh__p span { grid-column: 2; color: var(--mh-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mh__p em { grid-row: 1; grid-column: 3; font-style: normal; color: var(--mh-muted); font-variant-numeric: tabular-nums; }
+  .mh__main { display: grid; align-content: start; gap: 8px; padding: 14px 18px; min-width: 0; }
+  .mh__h { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; }
+  .mh__h small { margin-left: auto; color: var(--mh-muted); font-weight: 400; font-size: 13px; }
+  .mh__mod { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 6px 0; border-top: 1px solid var(--mh-line); }
+  .mh__mod img { width: 24px; height: 24px; border-radius: 5px; }
+  .mh__mod b { font-weight: 500; }
+  .mh__mod span { color: var(--mh-muted); font-variant-numeric: tabular-nums; }
+  .mh__chip, .mh__rm { font-style: normal; }
+  .mh__chip { height: 22px; padding: 0 8px; border-radius: 99px; display: inline-flex; align-items: center; font-size: 13px; font-weight: 500; white-space: nowrap; }
+  .mh__chip--ok { background: #e3f4ea; color: var(--mh-ok); }
+  .mh__chip--pc { background: #e6e9fd; color: var(--mh-acc); }
+  .mh__chip--warn { background: #fbeedb; color: var(--mh-warn); }
+  .mh__tool { display: flex; align-items: center; gap: 8px; color: var(--mh-muted); }
+  .mh__tool::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; }
+  .mh__sum { padding: 10px 12px; border-radius: 10px; background: var(--mh-fill); }
+  .mh__acts { display: flex; gap: 8px; }
+  .mh__acts span { height: 30px; padding: 0 12px; border-radius: 8px; display: inline-flex; align-items: center; font-weight: 500; background: var(--mh-acc); color: #fff; }
+  .mh__acts span + span { background: var(--mh-fill); color: var(--mh-ink); box-shadow: inset 0 0 0 1px var(--mh-line); }
+  .mh__rm { height: 24px; padding: 0 10px; border-radius: 6px; display: inline-flex; align-items: center; font-weight: 500; color: #b4232a; box-shadow: inset 0 0 0 1px rgb(180 35 42 / .3); }
+
+  /* the hero frame's painted ground when WebGL is not there: a blue sky over green hills */
+  .hero__window { background:
+    radial-gradient(120% 60% at 70% 118%, #5d8a3a 0 40%, transparent 41%),
+    radial-gradient(90% 50% at 10% 108%, #6f9e47 0 42%, transparent 43%),
+    radial-gradient(80% 40% at 60% 92%, #9fb8c9 0 40%, transparent 41%),
+    linear-gradient(#4f93d6, #a7cbea 70%, #cfe0ea); }
+  .hero__window .mh__body { min-height: 400px; }
+
+  /* the profiles frame (app-frame recipe) */
+  .app.ui { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: var(--s-7); background: #fff; border: 1px solid rgb(20 22 26 / .1); border-radius: 14px; box-shadow: 0 24px 60px -32px rgb(20 30 60 / .35); }
+  .app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+  .app > .app__pane + .app__pane { border-left: 1px solid rgb(20 22 26 / .09); }
+  .app > .app__pane > .mh { border-radius: 0; box-shadow: none; height: 100%; }
+  .app > .app__pane::after { content: ""; position: absolute; inset: auto 0 0 0; height: 64px; background: linear-gradient(transparent, #fff); pointer-events: none; }
+  .app .mh__body { grid-template-columns: 150px minmax(0, 1fr); min-height: 0; height: calc(100% - 40px); }
+  .app .mh__side { border-right: 1px solid rgb(20 22 26 / .09); padding: 10px 8px; display: grid; align-content: start; gap: 2px; color: #5d6470; }
+  .app .mh__side span { display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px; border-radius: 6px; white-space: nowrap; }
+  .app .mh__side span.is-on { background: #f4f5f7; color: #14161a; font-weight: 500; }
+  .app .mh__side img { width: 16px; height: 16px; border-radius: 3px; }
+  .app .mh__side em { margin-left: auto; font-style: normal; font-variant-numeric: tabular-nums; }
+  .app .mh__list { border-right: 0; }
+  @media (min-width: 1024px) and (max-width: 1279px) { .app.ui { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+  @media (max-width: 1023px) {
+    .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+    .app > .app__pane--list { max-height: 252px; }
+    .app > .app__pane--list::after { display: none; }
+    .app .mh__side { display: none; }
+    .app .mh__body { grid-template-columns: minmax(0, 1fr); }
+    .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid rgb(20 22 26 / .09); }
   }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; color: var(--text); font: 17px/1.6 "Rubik", system-ui, sans-serif; background: var(--sky-top); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; }
-  img { display: block; max-width: 100%; }
-  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
-  :focus-visible { outline: 3px solid var(--xp); outline-offset: 3px; }
-
-  /* ---------- nav ---------- */
-  nav { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .3s; }
-  nav.solid { background: rgba(15,24,56,.88); backdrop-filter: blur(8px); box-shadow: 0 2px 0 var(--edge); }
-  nav .wrap { display: flex; align-items: center; gap: 28px; height: 68px; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--pixel); font-size: 24px; font-weight: 700; letter-spacing: .5px; text-shadow: 2px 2px 0 var(--edge); }
-  .brand img { width: 34px; height: 34px; border-radius: 6px; box-shadow: 0 0 0 2px var(--edge); }
-  .links { display: flex; gap: 22px; margin-inline-start: auto; font-size: 15px; }
-  .links a { text-decoration: none; color: var(--muted); }
-  .links a:hover { color: var(--text); }
-
-  /* ---------- the grass-block button ---------- */
-  .dl {
-    display: inline-flex; align-items: center; gap: 12px; padding: 0 26px; height: 60px; text-decoration: none;
-    font-family: var(--pixel); font-size: 22px; font-weight: 700; color: #10240a; letter-spacing: .3px;
-    background: linear-gradient(var(--grass) 0 62%, var(--dirt) 62%); border: 3px solid var(--edge);
-    box-shadow: inset 3px 3px 0 rgba(255,255,255,.35), inset -3px -3px 0 rgba(0,0,0,.3), 0 6px 0 var(--edge);
-    transition: transform .08s, box-shadow .08s;
+  @media (max-width: 639px) {
+    .app.ui { grid-template-rows: minmax(0, 1fr); }
+    .app > .app__pane--list { display: none; }
+    .app > .app__pane + .app__pane { border-top: 0; }
   }
-  .dl small { font-family: "Rubik"; font-size: 13px; font-weight: 600; color: #f3e3c9; padding: 1px 6px; background: rgba(0,0,0,.25); align-self: flex-end; margin-bottom: 4px; }
-  .dl:hover { filter: brightness(1.06); }
-  .dl:active { transform: translateY(6px); box-shadow: inset 3px 3px 0 rgba(0,0,0,.25), inset -3px -3px 0 rgba(255,255,255,.2), 0 0 0 var(--edge); }
-  nav .dl { height: 42px; font-size: 16px; padding: 0 16px; box-shadow: inset 2px 2px 0 rgba(255,255,255,.35), inset -2px -2px 0 rgba(0,0,0,.3), 0 4px 0 var(--edge); }
 
-  /* ---------- hero ---------- */
-  .hero { position: relative; min-height: 100svh; overflow: hidden; background: linear-gradient(var(--sky-top), var(--sky) 45%, var(--horizon)); display: grid; align-items: center; }
-  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero .wrap { position: relative; z-index: 2; padding: 120px 0 80px; pointer-events: none; }
-  .hero .copy { max-width: 640px; pointer-events: auto; }
-  .hero h1 { margin: 0 0 20px; font-size: clamp(40px, 5.6vw, 70px); line-height: 1.02; font-weight: 800; letter-spacing: -1.5px; text-wrap: balance; }
-  .hero h1 .line { display: block; overflow: hidden; white-space: nowrap; }
-  .hero h1 .line > span { display: inline-block; }
-  .hero p { margin: 0 0 32px; font-size: 19px; color: #cdd3f0; max-width: 46ch; }
-  .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 26px; font-size: 14px; color: var(--muted); }
-  .facts span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-end: 8px; background: var(--grass); box-shadow: 1px 1px 0 var(--edge); vertical-align: 1px; }
-  .ground { position: absolute; left: 0; right: 0; bottom: -1px; height: 48px; z-index: 3;
-    background: linear-gradient(var(--grass) 0 14px, var(--grass-step) 14px 18px, var(--dirt) 18px);
-    -webkit-mask: linear-gradient(90deg, #000 0 0); }
-  .ground::before { content: ""; position: absolute; inset: 0 0 auto; height: 18px;
-    background: repeating-linear-gradient(90deg, transparent 0 24px, rgba(0,0,0,.12) 24px 48px); }
-
-  /* ---------- sections ---------- */
-  section { padding: 110px 0; position: relative; }
-  section.dirt { background: #241a14 radial-gradient(rgba(0,0,0,.18) 1px, transparent 1.5px) 0 0 / 12px 12px; }
-  section.stone { background: #171e3c; }
-  h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 0 0 16px; font-weight: 800; letter-spacing: -.8px; max-width: 20ch; }
-  .lead { color: #c3cae8; max-width: 60ch; margin: 0 0 46px; font-size: 18px; }
-
-  /* screenshots in item frames */
-  .shots { display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; align-items: start; }
-  .frame { background: #6d4a2c; padding: 12px; border: 3px solid #2e1e10; box-shadow: inset 3px 3px 0 #9a6b41, inset -3px -3px 0 #4a311b, 0 18px 40px rgba(0,0,0,.45); }
-  .frame img { border: 3px solid #2e1e10; }
-  .frame figcaption { color: #f3e3c9; font-size: 15px; padding: 12px 4px 2px; }
-  .frame:nth-child(2) { margin-top: 70px; }
-
-  /* launchers as a hotbar */
-  .hotbar { display: flex; flex-wrap: wrap; gap: 0; width: fit-content; max-width: 100%; padding: 6px; background: #10172f; border: 3px solid var(--edge); box-shadow: var(--bevel); }
-  .slot { position: relative; width: 84px; height: 84px; display: grid; place-items: center; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); margin: 2px; }
-  .slot img { width: 46px; height: 46px; object-fit: contain; image-rendering: auto; }
-  .slot .tip { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; white-space: nowrap; padding: 6px 10px; font-size: 14px;
-    background: #12051f; border: 2px solid #2a0f5c; box-shadow: inset 0 0 0 2px #1a0638; opacity: 0; pointer-events: none; transition: opacity .15s; }
-  .slot:hover .tip, .slot:focus-visible .tip { opacity: 1; }
-  .slot:hover { border-color: #fff; }
-  .loaders { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-  .loaders span { padding: 6px 14px; font-size: 15px; background: var(--slab); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo); }
-
-  /* features: an inventory, items with tooltips written out */
-  .inv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 56px; }
-  .item { display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
-  .item .ico { width: 64px; height: 64px; display: grid; place-items: center; background: #8b8b8b; border: 3px solid #373737;
-    box-shadow: inset 3px 3px 0 #373737, inset -3px -3px 0 #fff; font-family: var(--pixel); font-size: 28px; color: #2c2c2c; }
-  .item h3 { margin: 4px 0 6px; font-size: 20px; }
-  .item p { margin: 0; color: #c3cae8; font-size: 16px; }
-
-  /* how it works: three steps along a path, a block walks it as you scroll */
-  .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 70px; }
-  .path { position: absolute; top: 26px; left: 30px; right: 30px; height: 6px; background: repeating-linear-gradient(90deg, var(--horizon) 0 12px, transparent 12px 20px); }
-  .walker { position: absolute; top: 2px; left: 6px; width: 30px; height: 30px; background: linear-gradient(var(--grass) 0 34%, var(--dirt) 34%); border: 3px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(255,255,255,.3); }
-  .step b { display: block; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 54px; line-height: 1; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); margin-bottom: 10px; }
-  .step h3 { margin: 0 0 8px; font-size: 22px; }
-  .step p { margin: 0; color: #c3cae8; }
-
-  /* faq */
-  .faq > * { max-width: 760px; }
-  details { border-bottom: 2px solid #26315c; }
-  summary { list-style: none; cursor: pointer; padding: 22px 0; font-size: 20px; font-weight: 600; display: flex; justify-content: space-between; gap: 20px; }
-  summary::after { content: "+"; font-family: var(--pixel); font-size: 26px; color: var(--sky-blue); transition: rotate .25s; }
-  details[open] summary::after { rotate: 45deg; }
-  details .a { overflow: hidden; }
-  details .a p { margin: 0 0 22px; color: #c3cae8; max-width: 62ch; }
-
-  .final { text-align: center; padding: 130px 0 150px; background: linear-gradient(var(--sky-top), #241a3f); overflow: hidden; }
-  .final h2 { margin: 0 auto 30px; max-width: none; }
-  .final .xp { width: min(420px, 80%); height: 14px; margin: 0 auto 34px; background: #10172f; border: 3px solid var(--edge); }
-  .final .xp i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 22px, #6cbf38 22px 25px); box-shadow: 0 0 14px rgba(138,224,79,.6); }
-  footer { padding: 30px 0 40px; color: var(--muted); font-size: 14px; background: #0c1229; }
-  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-
-  @media (max-width: 860px) {
-    .links { display: none; }
-    .shots, .inv, .steps { grid-template-columns: 1fr; }
-    .frame:nth-child(2) { margin-top: 0; }
-    .path, .walker { display: none; }
-    .hero { min-height: max(100svh, 900px); }
-    .hero .wrap { padding-top: 96px; align-self: start; }
-    .dl { font-size: 18px; height: 54px; padding: 0 18px; }
-    nav .dl { font-size: 14px; }
-    .slot { width: 64px; height: 64px; } .slot img { width: 36px; height: 36px; }
+  .more-launchers li { display: flex; align-items: center; gap: var(--s-3); } .more-launchers img { width: 24px; height: 24px; border-radius: 5px; } .more-launchers .rows__value { margin-left: auto; color: var(--muted); }
+  .faq-mock { margin-top: var(--s-6); }
+  /* card panels */
+  #features .panel { --p-h: 340px; }
+  #steps .panel { --p-h: 420px; }
+  @media (min-width: 640px) and (max-width: 1279px) { #steps { --h: 2 } }
+  @media (max-width: 639px) { #steps { --hm: 2 } #launchers { --hm: 2 } #features .mh__check { display: none; } }
+  @media (max-width: 1279px) { .hero__window .mh__body { grid-template-columns: minmax(0, 1fr); } .hero__window .mh__list, .app .mh__side { display: none; } .app .mh__body { grid-template-columns: minmax(0, 1fr); } }
+  .mh--card .mh__main { padding: 14px 16px; }
+  .mh__pack { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 6px 0; border-top: 1px solid var(--mh-line); }
+  .mh__pack > .sw { width: 22px; height: 22px; border-radius: 4px; background: var(--c); }
+  .mh__check { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+  .mh__check::before { content: ""; width: 16px; height: 16px; border-radius: 4px; background: var(--mh-acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 8.3 2.6 2.6L12 5.5' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+  .mh__field { height: 34px; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--mh-line); display: flex; align-items: center; gap: 8px; padding: 0 10px; }
+  .mh__field img { width: 20px; height: 20px; border-radius: 4px; image-rendering: pixelated; }
+  .mh__note { color: #3f4550; }
+  .mh__menu { display: grid; padding: 6px; gap: 1px; }
+  .mh__menu span { height: 30px; display: flex; align-items: center; padding: 0 10px; border-radius: 6px; }
+  .mh__menu span.is-on { background: var(--mh-acc); color: #fff; }
+  .mh__seg { display: flex; flex-wrap: wrap; gap: 6px; }
+  .mh__seg span { height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--mh-line); font-variant-numeric: tabular-nums; }
+  .mh__seg span.is-on { box-shadow: inset 0 0 0 2px var(--mh-acc); color: var(--mh-acc); font-weight: 500; }
+  @media (max-width: 639px) {
+    #features .panel { --p-h: 190px; } #steps .panel { --p-h: 356px; }
+    .hero__window .mh__body { grid-template-columns: 1fr; }
+    .hero__window .mh__list { display: none; }
+    .hero__window .mh__bar .sp ~ span { display: none; }
+    .hero__window .mh__tool { display: none; }
   }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  /* ---- the app's own look in every window: the inventory (dusk panels, bevels, grass for the action), so the site shows
+     the real ModHop. Shared with the app: Outfit, the pixel wordmark, the drawn icon set, the status words. ---- */
+  .mh { --mh-ink: #eef1ff; --mh-muted: #a9b1d3; --mh-line: #2c3866; --mh-fill: #10172f; --mh-ok: #a3e675; --mh-warn: #f4d34b; --mh-acc: #62b6f2;
+        --hi: rgba(255,255,255,.13); --lo: rgba(4,7,20,.55);
+        background: #1d2647; color: var(--mh-ink); border-radius: 6px;
+        box-shadow: 0 0 0 2px #0b1024, inset 2px 2px 0 var(--hi), 0 28px 60px -28px rgb(6 9 30 / .7); }
+  .mh__bar { background: #232e57; border-bottom: 2px solid #0b1024; }
+  .mh__bar b { color: #fff; }
+  .mh__q { background: var(--mh-fill); border-radius: 4px; box-shadow: inset 2px 2px 0 var(--lo); }
+  .mh__p { border-radius: 4px; }
+  .mh__p.is-on { background: #2c3866; box-shadow: inset 0 0 0 2px var(--mh-acc); }
+  .mh__p b, .mh__mod b, .mh__pack b { color: #fff; }
+  .mh__chip { border-radius: 3px; }
+  .mh__chip--ok { background: rgba(123,203,79,.16); color: var(--mh-ok); }
+  .mh__chip--pc { background: rgba(98,182,242,.16); color: #a6d8fb; }
+  .mh__chip--warn { background: rgba(244,211,75,.14); color: var(--mh-warn); }
+  .mh__rm { color: #ff8a7f; box-shadow: inset 0 0 0 2px rgb(255 107 94 / .45); border-radius: 3px; }
+  .mh__sum { background: var(--mh-fill); border-radius: 4px; box-shadow: inset 2px 2px 0 var(--lo); }
+  .mh__acts span { border-radius: 4px; background: #7bcb4f; color: #0f2408; font-weight: 600; box-shadow: inset 0 -3px 0 #3e7a22, inset 2px 2px 0 rgba(255,255,255,.25); }
+  .mh__acts span + span { background: #232e57; color: #eef1ff; box-shadow: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo); }
+  .mh__check::before { background-color: var(--mh-acc); border-radius: 3px; }
+  .mh__field { border-radius: 4px; background: var(--mh-fill); box-shadow: inset 2px 2px 0 var(--lo); }
+  .mh__note { color: #c9cfea; }
+  .mh__menu span { gap: 10px; }
+  .mh__menu span svg { width: 16px; height: 16px; flex: none; color: #a6d8fb; }
+  .mh__menu span.is-on { background: var(--mh-acc); color: #062033; }
+  .mh__menu span.is-on svg { color: #062033; }
+  .mh__seg span { border-radius: 4px; background: var(--mh-fill); box-shadow: inset 2px 2px 0 var(--lo); }
+  .mh__seg span.is-on { box-shadow: inset 0 0 0 2px var(--mh-acc); color: #a6d8fb; }
+  .app.ui { background: #1d2647; border: 2px solid #0b1024; border-radius: 8px; }
+  .app > .app__pane + .app__pane { border-left: 2px solid #0b1024; }
+  .app > .app__pane::after { background: linear-gradient(transparent, #1d2647); }
+  .app .mh__side { border-right: 2px solid #0b1024; color: var(--mh-muted); }
+  .app .mh__side span.is-on { background: #2c3866; color: #fff; }
+  @media (max-width: 1023px) { .app > .app__pane + .app__pane { border-left: 0; border-top: 2px solid #0b1024; } }
+  /* the pixel wordmark, as the app's title draws it */
+  .mh .loop-pause:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+  @media (max-width: 359px) { .nav__logo .wordmark { letter-spacing: 0; font-size: 14px; } }
+  .wordmark { font-family: "Pixelify Sans", var(--font-display); font-weight: 700; letter-spacing: .02em; }
 
-  /* ---------- block wipe between "pages" ---------- */
-  #wipe { position: fixed; inset: 0; z-index: 100; display: grid; pointer-events: none; }
-  #wipe i { display: block; background: linear-gradient(var(--grass) 0 22%, var(--grass-step) 22% 28%, var(--dirt) 28%); box-shadow: inset 0 0 0 2px rgba(0,0,0,.18); }
-
-  /* ---------- the transfer story (pinned while you scroll) ---------- */
-  .story { padding: 0; background: linear-gradient(var(--horizon), #1b2554 30%, #141d42); }
-  .story .stage { height: 100vh; display: grid; align-content: center; gap: 34px; }
-  .story h2 { margin: 0; max-width: none; text-align: center; }
-  .story .lead { margin: 0 auto; text-align: center; }
-  .boards { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: center; gap: 10px; }
-  .board { background: #c6c6c6; border: 3px solid #1c1c1c; box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555; padding: 14px; color: #2b2b2b; }
-  .board header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 700; }
-  .board header img { width: 28px; height: 28px; }
-  .board .ver { margin-inline-start: auto; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 18px; color: #3f3f3f; }
-  .cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-  .cell { aspect-ratio: 1; background: #8b8b8b; box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff; display: grid; place-items: center; }
-  .cell img { width: 72%; height: 72%; object-fit: contain; image-rendering: auto; }
-  .arrow { text-align: center; font-family: var(--pixel); font-size: 42px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
-  .tally { display: flex; justify-content: center; align-items: center; gap: 18px; font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 22px; }
-  .tally .xpbar { width: min(360px, 60vw); height: 14px; background: #10172f; border: 3px solid var(--edge); }
-  .tally .xpbar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, #8ae04f 0 18px, #6cbf38 18px 21px); box-shadow: 0 0 12px rgba(138,224,79,.6); }
-  .flying { position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none; object-fit: contain; }
-  .bit { position: fixed; left: 0; top: 0; z-index: 200; pointer-events: none; margin: -3px 0 0 -3px; box-shadow: 1px 1px 0 rgba(0,0,0,.35); }
-  .hero canvas { cursor: pointer; }
-  .hint { position: absolute; z-index: 3; right: 24px; bottom: 70px; font-size: 13px; color: var(--muted); }
-  @media (max-width: 860px) { .boards { grid-template-columns: 1fr; } .arrow { rotate: 90deg; } .story .stage { height: auto; padding: 90px 0; } .hint { display: none; } }
-
-  /* the language picker and the small things the original page had */
-  select.lang { height: 42px; padding: 0 10px; font: 600 14px "Rubik", sans-serif; color: var(--text); background: var(--slab); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 var(--hi), inset -2px -2px 0 var(--lo); cursor: pointer; }
-  select.lang option { background: var(--slab); }
-  .hero h1 em { font-style: normal; }
-  .hero .tags { margin: 22px 0 0; font-size: 13px; color: #8f98c2; max-width: 60ch; }
-  .shots figure { margin: 0; }
+  /* language picker (site.js fills it in) */
+  select.lang { height: var(--btn-h-sm, 36px); padding: 0 10px; font: 500 14px var(--font-text); color: var(--ink); background: var(--surface, #e2e5ea); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
   /* ratings */
-  .rate-box { max-width: 480px; margin: 0 auto; text-align: center; display: grid; gap: 10px; justify-items: center; padding: 30px; background: var(--slab); border: 3px solid var(--edge); box-shadow: var(--bevel); }
-  .avg { display: flex; align-items: baseline; gap: 12px; }
-  .avg b { font-family: "Rubik", system-ui, sans-serif; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 52px; color: var(--xp); text-shadow: 3px 3px 0 var(--edge); }
-  .stars { color: var(--xp); letter-spacing: 2px; font-size: 22px; } .stars .off { color: #3a4885; }
-  .pick-stars { display: flex; gap: 6px; }
-  .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s; }
-  .pick-stars button.on { color: var(--xp); text-shadow: 0 0 12px rgba(244,211,75,.5); }
-  .msg { font-size: 15px; color: var(--muted); } .msg.err { color: #ff6b5e; }
-  #rate h2, .final h2 { margin-inline: auto; text-align: center; }
-  .dl-count { color: var(--muted); font-size: 16px; margin: -16px 0 24px; }
-  .hero .dl-count { display: inline; margin: 0; color: inherit; }
-  [dir=rtl] .hint { right: auto; left: 24px; }
-  [dir=rtl] .walker { left: auto; right: 6px; }
-  [dir=rtl] .arrow { transform: scaleX(-1); }
-  #tallyN { direction: ltr; unicode-bidi: isolate; }
-  [dir=rtl] .story .board header .ver { margin-inline-start: auto; }
-  @media (max-width: 860px) { select.lang { margin-inline-start: auto; } }
+  .rate__wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--s-5, 20px); }
+  .rate__wrap h2 { margin: 0; }
+  .rate-card { display: grid; justify-items: center; gap: 14px; width: min(520px, 100%); padding: 40px 28px 32px; text-align: center; margin-top: var(--s-4, 16px); }
+  .rate-pick { display: grid; justify-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); width: 100%; }
+  .rate-avg b { font-size: 72px !important; }
+  .rate-card .stars { font-size: 28px !important; }
+  .rate-avg { display: flex; align-items: baseline; gap: 12px; }
+  .rate-avg b { font: 600 52px/1 var(--font-display); font-variant-numeric: tabular-nums; color: #f4d34b; text-shadow: 3px 3px 0 #0a0f24; }
+  .rate-card .stars { color: #f4d34b; letter-spacing: 2px; font-size: 22px; } .rate-card .stars .off { color: #3a4885; }
+  .pick-stars { display: flex; gap: 6px; direction: ltr; }
+  .pick-stars button { font-size: 34px; line-height: 1; background: none; border: 0; cursor: pointer; color: #3a4885; padding: 2px; transition: color .15s, transform .16s cubic-bezier(.23,1,.32,1); }
+  .pick-stars button:active { transform: scale(.92); }
+  .pick-stars button.on { color: #f4d34b; text-shadow: 0 0 12px rgba(244,211,75,.5); }
+  .rate-card .msg { color: #a2abd0; margin: 0; } .msg.err { color: #ff6b5e !important; }
+  .dl-count { color: var(--muted); margin: 0; }
+  /* right-to-left pages (he, ar) */
+  [dir=rtl] .stage > .fit { margin-inline: auto; } /* left and right both set: auto margins centre it in RTL too */
+  [dir=rtl] .h1-logo { margin-right: 0; margin-left: .12em; }
+  [dir=rtl] .m-arrow, [dir=rtl] .link::after { transform: scaleX(-1); }
 </style>
 </head>
 <body>
-<div id="wipe" aria-hidden="true"></div>
-<nav id="nav" aria-label="Main"><div class="wrap">
-  <a class="brand" href="#top"><img src="logo.png" alt="">ModHop</a>
-  <div class="links"><a href="#features">Features</a><a href="#launchers">Launchers</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
-  <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="https://modhop.github.io/" selected>English</option><option value="https://modhop.github.io/he/">עברית</option><option value="https://modhop.github.io/zh/">中文</option><option value="https://modhop.github.io/hi/">हिन्दी</option><option value="https://modhop.github.io/es/">Español</option><option value="https://modhop.github.io/ar/">العربية</option><option value="https://modhop.github.io/fr/">Français</option></select>
-  <a class="dl" href="https://da.gd/ModHop">Download</a>
-</div></nav>
-
-<header class="hero" id="top">
-  <canvas id="world" aria-hidden="true"></canvas>
-  <div class="wrap"><div class="copy">
-    <h1>Move your Minecraft mods to <em>any version</em> or launcher</h1>
-    <p>ModHop moves your mods, resource packs and settings between Dawn, Modrinth App, Prism Launcher, MultiMC, CurseForge and the Minecraft Launcher. It finds the right build of every mod for the new Minecraft version and adds the mods they need.<span id="dlCountTop" class="dl-count" data-t=" Downloaded {n} times so far." hidden></span></p>
-    <a class="dl" id="download" href="https://da.gd/ModHop">Download for Windows</a>
-    <div class="facts"><span>Version 1.4.32</span><span>Free</span><span>Windows 10 and 11</span><span>Updates itself</span><span>7 languages</span></div>
-    <p class="tags">Minecraft mod updater · Modpack transfer · Fabric, Forge, NeoForge and Quilt mods · Dawn, Modrinth App, Prism Launcher and CurseForge profiles</p>
-  </div></div>
-  <div class="ground"></div>
-  <div class="hint">Click the islands to send a block over</div>
+<!-- type: software (a free Windows app that moves Minecraft mods between versions and launchers)
+     deal: hero centred, nav nav-centre (dealt nav-cards, re-dealt: no photographs for its picture cards), close close-type,
+           footer footer-statement, rhythm surface-pairs, buttons tonal, mark: the client's own logo (dealt arc, replaced),
+           palette cool-grey-cobalt (a Windows utility's cool settings-window grey, cobalt for the one action),
+           type outfit (funnel and gabarito failed hero-lines: 3 lines at 1440), effect painterly-landscape in the hero frame (sky and hills: Minecraft's own first view)
+     moments: word-highlight in #backups (its own statement section) -->
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="#top"><img src="/logo.png" alt="" width="24" height="24" style="image-rendering:pixelated;border-radius:5px"><span class="wordmark">ModHop</span></a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item">
+        <a class="nav__link" href="#features">Features <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">Moving</p>
+              <a href="#profiles">Profiles<span>Every launcher in one list</span></a>
+              <a href="#features">Packs and settings<span>Options, servers, hotbars</span></a>
+              <a href="#backups">Backups<span>A last save before moves</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">Sharing</p>
+              <a href="#features">Send to a friend<span>By Minecraft name</span></a>
+              <a href="#launchers">Launchers<span>Nineteen read by name</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#profiles">Profiles</a></div>
+      <div class="nav__item"><a class="nav__link" href="#launchers">Launchers</a></div>
+      <div class="nav__item"><a class="nav__link" href="#faq">Questions</a></div>
+    </nav>
+    <div class="nav__actions">
+      <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="https://modhop.github.io/" selected>English</option><option value="https://modhop.github.io/he/">עברית</option><option value="https://modhop.github.io/zh/">中文</option><option value="https://modhop.github.io/hi/">हिन्दी</option><option value="https://modhop.github.io/es/">Español</option><option value="https://modhop.github.io/ar/">العربية</option><option value="https://modhop.github.io/fr/">Français</option></select>
+      <a class="btn btn--primary" href="https://da.gd/ModHop">Download ModHop</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 </header>
 
-<section class="story" id="story">
-  <div class="wrap stage">
-    <h2>Watch a profile move</h2>
-    <p class="lead">Fourteen mods leave Modrinth App on 1.21.11 and land in Dawn on 26.3, each one swapped for the build made for 26.3.</p>
-    <div class="boards">
-      <div class="board" id="fromBoard"><header><img src="img/icons/modrinth.png" alt="">Survival<span class="ver">1.21.11</span></header><div class="cells" id="fromCells"></div></div>
-      <div class="arrow" aria-hidden="true">⇨</div>
-      <div class="board" id="toBoard"><header><img src="img/icons/dawn.png" alt="">Survival<span class="ver">26.3</span></header><div class="cells" id="toCells"></div></div>
+<main id="top">
+  <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__c">
+        <a class="pill" href="#features"><span>ModHop 1.4.32</span><span class="muted">Free for Windows 10 and 11</span></a>
+        <h1 id="hero-h"><img width="28" height="28" class="h1-logo" src="/logo.png" alt=""> <span>Minecraft mod mover for any launcher</span></h1>
+        <p class="hero__lead">Pick a profile and a new version or launcher. ModHop fetches the right build of every mod from Modrinth and brings your packs and settings.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="https://da.gd/ModHop">Download ModHop</a><a class="btn btn--secondary" href="#steps">See the three steps</a></div>
+      </div>
+      <div class="hero__window" data-fx="painterly-landscape" data-fx-seed="11" role="img" aria-label="ModHop moving the profile Cozy Survival from Modrinth App on 1.21.11 to Dawn on 26.3">
+        <div class="ly-piece mh" aria-hidden="true">
+          <div class="mh__bar"><img width="28" height="28" src="/logo.png" alt=""><span><b>Cozy Survival</b> · Modrinth App 1.21.11</span><span class="sp"></span><span>to Dawn 26.3</span></div>
+          <div class="mh__body">
+            <div class="mh__list">
+              <div class="mh__q">Search profiles</div>
+              <div class="mh__p is-on"><img width="28" height="28" src="/img/icons/modrinth.png" alt=""><b>Cozy Survival</b><em>48</em><span>Fabric 1.21.11</span></div>
+              <div class="mh__p"><img width="28" height="28" src="/img/icons/dawn.png" alt=""><b>Skyblock run</b><em>31</em><span>Fabric 26.3</span></div>
+              <div class="mh__p"><img width="28" height="28" src="/img/icons/prism.png" alt=""><b>Create world</b><em>112</em><span>NeoForge 1.21.1</span></div>
+              <div class="mh__p"><img width="28" height="28" src="/img/icons/curseforge.png" alt=""><b>Better MC</b><em>204</em><span>Forge 1.20.1</span></div>
+            </div>
+            <div class="mh__main" data-ly-steps="900">
+              <div class="mh__h">Moving 48 mods to Dawn <small>26.3 · Fabric</small></div>
+              <div class="mh__tool" data-step>Checking every mod on Modrinth</div>
+              <div class="mh__mod" data-step><img width="28" height="28" src="/img/mods/sodium.webp" alt=""><span><b>Sodium</b> · build for 26.3</span><i class="mh__chip mh__chip--ok">Updated</i></div>
+              <div class="mh__mod" data-step><img width="28" height="28" src="/img/mods/iris.webp" alt=""><span><b>Iris Shaders</b> · build for 26.3</span><i class="mh__chip mh__chip--ok">Updated</i></div>
+              <div class="mh__mod" data-step><img width="28" height="28" src="/img/mods/fabric-api.png" alt=""><span><b>Fabric API</b> · Iris needs it</span><i class="mh__chip mh__chip--pc">Added</i></div>
+              <div class="mh__acts" data-step><span>Move profile</span><span>Check and fix</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="profiles" aria-labelledby="profiles-h">
+    <div class="wrap">
+      <div class="grid">
+        <h2 class="span-5" id="profiles-h">Every launcher profile in one list</h2>
+        <p class="span-6 start-7">ModHop finds the launchers on your PC by itself. Check and fix swaps each mod for the build made for that version and names the one that still breaks the game. <a class="link" href="#launchers">See the launchers</a></p>
+      </div>
+      <div class="ui app fill" role="img" aria-label="ModHop's profile list beside Check and fix for Cozy Survival: two mods updated, one built on this PC, one held back with a Remove button">
+        <div class="app__pane app__pane--list">
+          <div class="mh">
+            <div class="mh__bar"><img width="28" height="28" src="/logo.png" alt="" loading="lazy"><b>Profiles</b><span class="sp"></span><span>9 profiles</span></div>
+            <div class="mh__body">
+              <nav class="mh__side" aria-hidden="true">
+                <span class="is-on">All<em>9</em></span>
+                <span><img width="28" height="28" src="/img/icons/dawn.png" alt="" loading="lazy">Dawn<em>3</em></span>
+                <span><img width="28" height="28" src="/img/icons/modrinth.png" alt="" loading="lazy">Modrinth<em>2</em></span>
+                <span><img width="28" height="28" src="/img/icons/prism.png" alt="" loading="lazy">Prism<em>2</em></span>
+                <span><img width="28" height="28" src="/img/icons/curseforge.png" alt="" loading="lazy">CurseForge<em>1</em></span>
+                <span><img width="28" height="28" src="/img/icons/official.png" alt="" loading="lazy">Minecraft<em>1</em></span>
+              </nav>
+              <div class="mh__list">
+                <div class="mh__p is-on"><img width="28" height="28" src="/img/icons/dawn.png" alt="" loading="lazy"><b>Cozy Survival</b><em>48</em><span>Fabric 26.3</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/dawn.png" alt="" loading="lazy"><b>Skyblock run</b><em>31</em><span>Fabric 26.3</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/dawn.png" alt="" loading="lazy"><b>PvP practice</b><em>19</em><span>Fabric 1.21.11</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/modrinth.png" alt="" loading="lazy"><b>Shaders test</b><em>12</em><span>Fabric 1.21.11</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/modrinth.png" alt="" loading="lazy"><b>Hardcore</b><em>40</em><span>Quilt 1.21.4</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/prism.png" alt="" loading="lazy"><b>Create world</b><em>112</em><span>NeoForge 1.21.1</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/prism.png" alt="" loading="lazy"><b>Old SMP</b><em>66</em><span>Forge 1.19.2</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/curseforge.png" alt="" loading="lazy"><b>Better MC</b><em>204</em><span>Forge 1.20.1</span></div>
+                <div class="mh__p"><img width="28" height="28" src="/img/icons/official.png" alt="" loading="lazy"><b>Latest release</b><em>0</em><span>Vanilla 26.3</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app__pane app__pane--open">
+          <div class="mh">
+            <div class="mh__bar"><b>Check and fix</b> · Cozy Survival<span class="sp"></span><span>48 mods checked</span></div>
+            <div class="mh__main">
+              <div class="mh__sum">45 mods already fit 26.3. ModHop changed 3 and found 1 that still crashes the game.</div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/sodium.webp" alt="" loading="lazy"><span><b>Sodium</b> · 0.6.13 to the 26.3 build</span><i class="mh__chip mh__chip--ok">Updated</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/lithium.webp" alt="" loading="lazy"><span><b>Lithium</b> · 0.15 to the 26.3 build</span><i class="mh__chip mh__chip--ok">Updated</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/continuity.png" alt="" loading="lazy"><span><b>Continuity</b> · found in Downloads</span><i class="mh__chip mh__chip--pc">From this PC</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/zoomify.webp" alt="" loading="lazy"><span><b>Zoomify</b> · no build for 26.3 yet</span><i class="mh__rm">Remove</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/jade.webp" alt="" loading="lazy"><span><b>Jade</b> · fits 26.3</span><i class="mh__chip mh__chip--ok">OK</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/appleskin.png" alt="" loading="lazy"><span><b>AppleSkin</b> · fits 26.3</span><i class="mh__chip mh__chip--ok">OK</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/entityculling.webp" alt="" loading="lazy"><span><b>Entity Culling</b> · fits 26.3</span><i class="mh__chip mh__chip--ok">OK</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/ferrite-core.webp" alt="" loading="lazy"><span><b>FerriteCore</b> · fits 26.3</span><i class="mh__chip mh__chip--ok">OK</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/modmenu.png" alt="" loading="lazy"><span><b>Mod Menu</b> · fits 26.3</span><i class="mh__chip mh__chip--ok">OK</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tally"><span id="tallyN">0 / 14</span><span class="xpbar"><i id="tallyBar"></i></span></div>
-  </div>
-</section>
+  </section>
 
-<section class="dirt" id="shots">
+  <section class="section g2" id="features" aria-labelledby="features-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="features-h">More than mods move. <span class="muted">Packs, settings and whole profiles.</span></h2>
+        </div>
+        <div class="grid">
+          <article class="card card--row card--open span-6">
+            <h3>Brings packs and settings along</h3>
+            <p>Every resource pack, skipping duplicates and taking the newest copy. Options, servers and hotbars merge into the target.</p>
+            <div class="panel" data-fx-seed="21">
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:420px;--ax:max(24px, 50% - 210px);--ay:40px;--ay-sm:16px">
+                <div class="ui mh mh--card">
+                  <div class="mh__main">
+                    <div class="mh__h">Bring along <small>to Dawn 26.3</small></div>
+                    <div class="mh__pack"><span class="sw" style="--c:#7bb661"></span><span><b>Fresh Animations</b></span><i class="mh__chip mh__chip--ok">Newer copy</i></div>
+                    <div class="mh__pack"><span class="sw" style="--c:#c89a5a"></span><span><b>Faithful 32x</b></span><i class="mh__chip mh__chip--ok">Build for 26.3</i></div>
+                    <div class="mh__pack"><span class="sw" style="--c:#9aa3ad"></span><span><b>Faithful 32x (copy)</b></span><i class="mh__chip mh__chip--warn">Duplicate</i></div>
+                    <div class="mh__check">Game options</div>
+                    <div class="mh__check">Server list</div>
+                    <div class="mh__check">Saved hotbars</div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+          <article class="card card--row card--open span-6">
+            <h3>Sends a profile to a friend</h3>
+            <p>Type their Minecraft name. They pick a launcher and get the same mods and packs, up to 5,000 mods in one send.</p>
+            <div class="panel" data-fx-seed="34">
+              <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:420px;--ax:max(24px, 50% - 210px);--ay:40px;--ay-sm:16px">
+                <div class="ui mh mh--card">
+                  <div class="mh__main">
+                    <div class="mh__h">Send Cozy Survival</div>
+                    <div class="mh__field"><img width="28" height="28" src="/img/mods/appleskin.png" alt="" loading="lazy">CraftyMia</div>
+                    <div class="mh__note">48 mods and 2 resource packs. Up to 5,000 mods in one send.</div>
+                    <div class="mh__acts"><span>Send to CraftyMia</span><span>Packs only</span></div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-6">
+          <h3>Keeps a save of the profile before each move</h3>
+          <p>The profile you move into is saved first. One click from the folder icon puts it back.</p>
+          <div class="panel" data-fx-seed="47">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:420px;--ax:max(24px, 50% - 210px);--ay:40px;--ay-sm:16px">
+              <div class="ui mh mh--card">
+                <div class="mh__main">
+                  <div class="mh__h">Last save <small>Today, 16:42</small></div>
+                  <div class="mh__sum">Skyblock run, saved before moving Cozy Survival into it. 31 mods, settings and packs.</div>
+                  <div class="mh__acts"><span>Put it back</span><span>Choose profiles</span></div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row card--open span-6">
+          <h3>Finds mods you built yourself</h3>
+          <p>A mod that is not on Modrinth is looked for in your profiles, Desktop, Downloads and Documents.</p>
+          <div class="panel" data-fx-seed="58">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:420px;--ax:max(24px, 50% - 210px);--ay:40px;--ay-sm:16px">
+              <div class="ui mh mh--card">
+                <div class="mh__main">
+                  <div class="mh__h">Not on Modrinth <small>1 mod</small></div>
+                  <div class="mh__mod"><img width="28" height="28" src="/logo.png" alt="" style="image-rendering:pixelated" loading="lazy"><span><b>my-waypoints-1.4.jar</b> · Downloads</span><i class="mh__chip mh__chip--pc">Build for 26.3</i></div>
+                  <div class="mh__tool">Searched 6 launchers and 3 folders</div>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section statement" id="backups" data-moment="word-highlight" aria-label="Backups">
+    <div class="wrap">
+      <p class="t-label">Backups</p>
+      <p class="mo-wh__text">Mods that would crash the game are held back and named, and every file ModHop replaces is copied to <strong>a backup folder</strong> before anything changes.</p>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="launchers" aria-labelledby="launchers-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-6 stack-4">
+          <h2 id="launchers-h">Works with 19 launchers</h2>
+          <p>Move a profile from Modrinth App to Dawn, from CurseForge to Prism Launcher, or back, with the same mods. Fabric, Forge, NeoForge and Quilt.</p>
+          <ul class="rows more-launchers">
+            <li><img width="28" height="28" src="/img/icons/polymc.png" alt="" loading="lazy"><span class="rows__name">PolyMC</span><span class="rows__value">and 6 more MultiMC forks</span></li>
+            <li><img width="28" height="28" src="/img/icons/atlauncher.png" alt="" loading="lazy"><span class="rows__name">ATLauncher</span><span class="rows__value">Instances</span></li>
+            <li><img width="28" height="28" src="/img/icons/feather.png" alt="" loading="lazy"><span class="rows__name">Feather Client</span><span class="rows__value">Profiles</span></li>
+          </ul>
+          <p>Also FTB App, Technic Launcher, GDLauncher and X Minecraft Launcher.</p>
+        </div>
+        <div class="panel span-6 start-7" style="--p-h: 690px"><div class="dg" data-diagram data-dg-still><script type="application/json">{"layout":"hub","alt":"ModHop in the middle, linked to Dawn, Modrinth App, Prism Launcher, CurseForge, MultiMC and the Minecraft Launcher.","center":{"label":"ModHop","icon":"/logo.png"},"spokes":[{"label":"Dawn","icon":"/img/icons/dawn.png"},{"label":"Modrinth App","icon":"/img/icons/modrinth.png"},{"label":"Prism Launcher","icon":"/img/icons/prism.png"},{"label":"CurseForge","icon":"/img/icons/curseforge.png"},{"label":"MultiMC","icon":"/img/icons/multimc.png"},{"label":"Minecraft Launcher","icon":"/img/icons/official.png"}]}</script></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="steps" aria-labelledby="steps-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="steps-h">A working profile in 3 steps</h2></div>
+      <div class="grid">
+        <article class="card card--row card--open span-4">
+          <span class="step-num">1</span>
+          <h3>Right-click a profile</h3>
+          <p>Every launcher's profiles sit in one list.</p>
+          <div class="panel"><div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:300px;--ax:max(20px, 50% - 150px);--ay:32px;--ay-sm:16px">
+            <div class="ui mh mh--card"><div class="mh__p is-on" style="margin:6px 6px 0"><img width="28" height="28" src="/img/icons/modrinth.png" alt="" loading="lazy"><b>Cozy Survival</b><em>48</em><span>Fabric 1.21.11</span></div><div class="mh__menu"><span class="is-on"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5.5h10M10 3l2.5 2.5L10 8"/><path d="M13.5 10.5h-10M6 8l-2.5 2.5L6 13"/></svg>Move mods</span><span><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5h6M11.5 4.5h2M2.5 11.5h2M7.5 11.5h6"/><circle cx="10" cy="4.5" r="1.5"/><circle cx="6" cy="11.5" r="1.5"/></svg>Copy settings</span><span><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2 7 9"/><path d="M14 2 9.5 14 7 9 2 6.5z"/></svg>Send to a friend</span><span><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.6 2.6a3.3 3.3 0 0 0 3.8 4.4L7.2 13.2a1.6 1.6 0 0 1-2.3-2.3L11 4.7"/><path d="M9.6 2.6 11 4.7"/></svg>Check and fix</span></div></div>
+          </div></div></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <span class="step-num">2</span>
+          <h3>Choose a Minecraft version</h3>
+          <p>Or another launcher, and what comes along.</p>
+          <div class="panel"><div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:300px;--ax:max(20px, 50% - 150px);--ay:32px;--ay-sm:16px">
+            <div class="ui mh mh--card"><div class="mh__main"><div class="mh__h">Minecraft version</div><div class="mh__seg"><span>1.21.4</span><span>1.21.11</span><span class="is-on">26.3</span></div><div class="mh__check">Resource packs</div><div class="mh__check">Settings</div></div></div>
+          </div></div></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <span class="step-num">3</span>
+          <h3>Open your launcher</h3>
+          <p>ModHop says what changed. Press play.</p>
+          <div class="panel"><div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:300px;--ax:max(20px, 50% - 150px);--ay:32px;--ay-sm:16px">
+            <div class="ui mh mh--card"><div class="mh__main"><div class="mh__h">Done</div><div class="mh__sum">48 mods ready on 26.3. 2 packs and your settings came along.</div><div class="mh__mod"><img width="28" height="28" src="/img/mods/sodium.webp" alt="" loading="lazy"><span><b>Sodium</b></span><i class="mh__chip mh__chip--ok">Updated</i></div><div class="mh__mod"><img width="28" height="28" src="/img/mods/fabric-api.png" alt="" loading="lazy"><span><b>Fabric API</b></span><i class="mh__chip mh__chip--pc">Added</i></div><div class="mh__acts"><span>Open Dawn</span></div></div></div>
+          </div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface rate" id="rate" aria-labelledby="rate-h">
+    <div class="wrap rate__wrap">
+      <p class="t-label">Ratings</p>
+      <h2 id="rate-h">What do you think of ModHop?</h2>
+      <div class="mh rate-card">
+        <div class="rate-avg"><b id="rateAvg">–</b><span class="stars" id="rateStars" aria-hidden="true"><span class="off">★★★★★</span></span></div>
+        <p class="msg" id="rateCount" data-one="1 rating" data-many="{n} ratings">No ratings yet. Be the first!</p>
+        <div class="rate-pick">
+          <p class="msg">Your rating:</p>
+          <div class="pick-stars" id="pick" role="group" aria-label="Your rating"><button type="button" data-s="1" aria-label="1 star">★</button><button type="button" data-s="2" aria-label="2 stars">★</button><button type="button" data-s="3" aria-label="3 stars">★</button><button type="button" data-s="4" aria-label="4 stars">★</button><button type="button" data-s="5" aria-label="5 stars">★</button></div>
+        </div>
+        <p class="msg" id="rateMsg" data-thanks="Thanks! Your rating will show up here within a few hours." data-fail="Couldn't send your rating. Try again later." hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="faq-h">Questions</h2>
+          <p>What people ask before they download.</p>
+          <div class="ui mh faq-mock" role="img" aria-label="The backup folder ModHop writes before a move, holding the replaced mods and the removed Zoomify">
+            <div class="mh__bar"><img width="28" height="28" src="/logo.png" alt="" loading="lazy"><b>.mod-migrator-backup</b><span class="sp"></span><span>Skyblock run</span></div>
+            <div class="mh__main">
+              <div class="mh__h">18 Nov 2026, 16:42 <small>6 files</small></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/sodium.webp" alt="" loading="lazy"><span><b>sodium-0.6.13.jar</b> · replaced</span><i class="mh__chip mh__chip--ok">Kept</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/lithium.webp" alt="" loading="lazy"><span><b>lithium-0.15.jar</b> · replaced</span><i class="mh__chip mh__chip--ok">Kept</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/zoomify.webp" alt="" loading="lazy"><span><b>zoomify-2.14.jar</b> · removed</span><i class="mh__chip mh__chip--ok">Kept</i></div>
+              <div class="mh__mod"><img width="28" height="28" src="/img/mods/fabric-api.png" alt="" loading="lazy"><span><b>options.txt</b> · before the merge</span><i class="mh__chip mh__chip--ok">Kept</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>Is ModHop free?</h3><p>Yes. ModHop is free, with no ads and no account.</p></div>
+          <div class="faq__item"><h3>Will it change my existing profiles?</h3><p>Only the profile you choose as the target. Files it replaces are copied to a backup folder first. Profiles a friend sends you always become a new profile.</p></div>
+          <div class="faq__item"><h3>Where do the mods come from?</h3><p>From Modrinth. ModHop checks every file's hash before it uses it. Mods that are not on Modrinth are listed so you can add them yourself.</p></div>
+          <div class="faq__item"><h3>Why does Windows or my browser warn about the file?</h3><p>ModHop is new and not yet signed with a paid certificate, so Windows and browsers don't recognize it. Choose Keep, or More info → Run anyway.</p></div>
+          <div class="faq__item"><h3>Does it work with Forge and NeoForge?</h3><p>Yes, in launchers that support them. Dawn profiles use Fabric, so Forge and NeoForge profiles go to launchers like Modrinth App or Prism Launcher.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing footer--statement" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <h2>All your profiles, one click away</h2>
-    <div class="shots">
-      <figure class="frame"><img src="img/shot-profiles.jpg" alt="ModHop listing six Fabric profiles with the menu open: transfer mods, copy settings, send to a friend, send resource packs, check and fix mods" width="1100" height="719" loading="lazy"><figcaption>Right-click a profile to move its mods, copy its settings or send it to a friend.</figcaption></figure>
-      <figure class="frame"><img src="img/shot-friends.jpg" alt="The Friends tab in ModHop with a friend request, a received profile with 24 mods and 2 resource packs, and a list of friends" width="1100" height="719" loading="lazy"><figcaption>Friends send you profiles and resource packs. Click Get it and pick your launcher.</figcaption></figure>
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Download ModHop for Windows</h2>
+        <p>Free, no account. Windows 10 and 11.</p>
+        <p class="dl-count" id="dlCount" data-t="Downloaded {n} times" hidden></p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="https://da.gd/ModHop">Download ModHop<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <a class="nav__logo" href="#top"><img src="/logo.png" alt="" width="24" height="24" style="image-rendering:pixelated;border-radius:5px" loading="lazy"><span class="wordmark">ModHop</span></a>
+          <p class="footer__lede">A free Windows app that moves Minecraft profiles between versions and launchers.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Features</h3><ul><li><a href="#profiles">Profiles</a></li><li><a href="#features">Sending</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Launchers</h3><ul><li><a href="#launchers">All 19</a></li><li><a href="#steps">Steps</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Help</h3><ul><li><a href="#faq">Questions</a></li><li><a href="#backups">Backups</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>ModHop 1.4.32 · Minecraft mod manager for Windows</span>
+        <span>Not affiliated with Mojang, Microsoft or any launcher.</span>
+        <div class="socials"></div>
+      </div>
     </div>
   </div>
-</section>
-
-<section class="stone" id="launchers">
-  <div class="wrap">
-    <h2>Every version, every launcher</h2>
-    <p class="lead">ModHop works with every Minecraft version and mod loader. It finds the launchers on your PC by itself and reads their profiles, so you can move a profile from one launcher to another.</p>
-    <div class="hotbar">
-      <div class="slot" tabindex="0"><img src="img/icons/dawn.png" alt="Dawn"><span class="tip">Dawn</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/modrinth.png" alt="Modrinth App"><span class="tip">Modrinth App</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/prism.png" alt="Prism Launcher"><span class="tip">Prism Launcher</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/curseforge.png" alt="CurseForge"><span class="tip">CurseForge</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/multimc.png" alt="MultiMC"><span class="tip">MultiMC</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/polymc.png" alt="PolyMC"><span class="tip">PolyMC</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/atlauncher.png" alt="ATLauncher"><span class="tip">ATLauncher</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/feather.png" alt="Feather Client"><span class="tip">Feather Client</span></div>
-      <div class="slot" tabindex="0"><img src="img/icons/official.png" alt="Minecraft Launcher"><span class="tip">Minecraft Launcher</span></div>
-    </div>
-    <div class="loaders"><span>Every Minecraft version</span><span>Fabric</span><span>Forge</span><span>NeoForge</span><span>Quilt</span></div>
-  </div>
-</section>
-
-<section id="features">
-  <div class="wrap">
-    <h2>Update Minecraft mods without breaking your game</h2>
-    <div class="inv">
-      <div class="item"><div class="ico">↑</div><div><h3>Update to a new Minecraft version</h3><p>Pick a profile and a newer version. ModHop downloads the build of each mod made for that version from Modrinth.</p></div></div>
-      <div class="item"><div class="ico">⇄</div><div><h3>Switch launchers</h3><p>Move a profile from Modrinth App to Dawn, from CurseForge to Prism, or the other way, with the same mods.</p></div></div>
-      <div class="item"><div class="ico">+</div><div><h3>Adds missing mods</h3><p>When a mod needs another mod to run, ModHop adds it. Mods that would crash the game are held back and explained.</p></div></div>
-      <div class="item"><div class="ico">▦</div><div><h3>Resource packs and settings</h3><p>Your resource packs, game options, mod configs and server list come along.</p></div></div>
-      <div class="item"><div class="ico">♥</div><div><h3>Send profiles to friends</h3><p>Send a profile, or just resource packs, to a friend by Minecraft name. They download it into the launcher they choose.</p></div></div>
-      <div class="item"><div class="ico">✓</div><div><h3>Safe by default</h3><p>Downloads come only from Modrinth and are checked. Replaced files are backed up, and updates to ModHop are signed.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="stone" id="how">
-  <div class="wrap">
-    <h2>Three clicks to a working profile</h2>
-    <div class="steps">
-      <div class="path"></div><div class="walker" id="walker"></div>
-      <div class="step"><b>1</b><h3>Pick a profile</h3><p>ModHop lists the profiles of all your launchers. Right-click the one you want to move.</p></div>
-      <div class="step"><b>2</b><h3>Pick where it goes</h3><p>Choose another version or another launcher, and the mods and resource packs to bring.</p></div>
-      <div class="step"><b>3</b><h3>Play</h3><p>ModHop downloads the right files and tells you what changed. Open your launcher and play.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="rate">
-  <div class="wrap">
-    <h2>What do you think of ModHop?</h2>
-    <div class="rate-box">
-      <div class="avg"><b id="rateAvg">–</b><span class="stars" id="rateStars" aria-hidden="true"><span class="off">★★★★★</span></span></div>
-      <div class="msg" id="rateCount" data-one="1 rating" data-many="{n} ratings">No ratings yet. Be the first!</div>
-      <div class="msg">Your rating:</div>
-      <div class="pick-stars" id="pick" role="group" aria-label="Your rating"><button type="button" data-s="1" aria-label="1 star">★</button><button type="button" data-s="2" aria-label="2 stars">★</button><button type="button" data-s="3" aria-label="3 stars">★</button><button type="button" data-s="4" aria-label="4 stars">★</button><button type="button" data-s="5" aria-label="5 stars">★</button></div>
-      <div class="msg" id="rateMsg" data-thanks="Thanks! Your rating will show up here within a few hours." data-fail="Couldn't send your rating. Try again later." hidden></div>
-    </div>
-  </div>
-</section>
-
-<section class="stone" id="faq">
-  <div class="wrap faq">
-    <h2>Questions</h2>
-    <details><summary>Is ModHop free?</summary><div class="a"><p>Yes. ModHop is free, with no ads and no account.</p></div></details>
-    <details><summary>Will it change my existing profiles?</summary><div class="a"><p>Only the profile you choose as the target. Files it replaces are copied to a backup folder first. Profiles a friend sends you always become a new profile.</p></div></details>
-    <details><summary>Where do the mods come from?</summary><div class="a"><p>From Modrinth. ModHop checks every file's hash before it uses it. Mods that are not on Modrinth are listed so you can add them yourself.</p></div></details>
-    <details><summary>Why does Windows or my browser warn about the file?</summary><div class="a"><p>ModHop is new and not yet signed with a paid certificate, so Windows and browsers don't recognize it. Choose Keep, or More info → Run anyway.</p></div></details>
-    <details><summary>Does it work with Forge and NeoForge?</summary><div class="a"><p>Yes, in launchers that support them. Dawn profiles use Fabric, so Forge and NeoForge profiles go to launchers like Modrinth App or Prism Launcher.</p></div></details>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <h2>Ready to move your mods?</h2>
-    <p class="dl-count" id="dlCount" data-t="Downloaded {n} times" hidden></p>
-    <div class="xp"><i id="xp"></i></div>
-    <a class="dl" href="https://da.gd/ModHop">Download for Windows</a>
-  </div>
-</section>
-
-<footer><div class="wrap"><span>ModHop 1.4.32 · Minecraft mod manager for Windows</span><span>Not affiliated with Mojang, Microsoft or any launcher.</span></div></footer>
+</footer>
 
 <script>
 const LANG = document.documentElement.lang;
@@ -356,7 +597,7 @@ const fill = (el, n) => el.dataset.t.replace('{n}', n.toLocaleString(LANG));
       try { localStorage.setItem(KEY, JSON.stringify({ n, at: Date.now() })); } catch {}
     } catch { return; }
   }
-  for (const id of ['dlCount', 'dlCountTop']) { const el = document.getElementById(id); el.textContent = fill(el, n); el.hidden = false; }
+  for (const id of ['dlCount', 'dlCountTop']) { const el = document.getElementById(id); if (el) { el.textContent = fill(el, n); el.hidden = false; } }
 })();
 
 // Star ratings. A rating goes to a public relay topic; every hour a GitHub job in the site's repository counts
@@ -401,203 +642,9 @@ const fill = (el, n) => el.dataset.t.replace('{n}', n.toLocaleString(LANG));
   } catch {}
 })();
 </script>
-<script src="img/vendor/gsap.min.js"></script>
-<script src="img/vendor/ScrollTrigger.min.js"></script>
-<script type="module">
-// img/ as the page sees it (one folder up on the language pages)
-const IMG = document.querySelector('script[src$="gsap.min.js"]').src.replace(/vendor\/gsap\.min\.js$/, '');
-const THREE = await import(IMG + 'vendor/three.module.min.js');
-const RTL = document.documentElement.dir === 'rtl';
-gsap.registerPlugin(ScrollTrigger);
-const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// ---------- the hero world: two floating islands, blocks hopping from one to the other ----------
-const canvas = document.getElementById('world');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(2, devicePixelRatio));
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 200);
-scene.add(new THREE.HemisphereLight(0xbcd8ff, 0x2b1d3a, 1.5));
-const sun = new THREE.DirectionalLight(0xffe2b0, 2.2); sun.position.set(-6, 12, 8); scene.add(sun);
-
-// pixel textures (16x16, made here)
-function tex(draw) { const c = document.createElement('canvas'); c.width = c.height = 16; draw(c.getContext('2d')); const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.colorSpace = THREE.SRGBColorSpace; return t; }
-let seed = 9; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-const noise = (x, base, v) => { for (let i = 0; i < 16; i++) for (let j = 0; j < 16; j++) { const k = 1 + (rnd() - .5) * v; x.fillStyle = `rgb(${base[0] * k | 0},${base[1] * k | 0},${base[2] * k | 0})`; x.fillRect(i, j, 1, 1); } };
-const top = tex(x => noise(x, [110, 190, 70], .3));
-const side = tex(x => { noise(x, [134, 92, 58], .32); for (let i = 0; i < 16; i++) { const d = 3 + (rnd() * 3 | 0); for (let j = 0; j < d; j++) { const k = 1 + (rnd() - .5) * .25; x.fillStyle = `rgb(${110 * k | 0},${190 * k | 0},${70 * k | 0})`; x.fillRect(i, j, 1, 1); } } });
-const dirt = tex(x => noise(x, [134, 92, 58], .32));
-const stone = tex(x => noise(x, [120, 122, 138], .25));
-const M = t => new THREE.MeshLambertMaterial({ map: t });
-const grassMat = [M(side), M(side), M(top), M(dirt), M(side), M(side)];
-const box = new THREE.BoxGeometry(1, 1, 1);
-
-function island(cx, cz, r, seedVal) {
-  seed = seedVal;
-  const g = new THREE.Group(); const cells = [];
-  for (let x = -r; x <= r; x++) for (let z = -r; z <= r; z++) {
-    const d = Math.hypot(x, z); if (d > r + .3) continue;
-    cells.push(['g', x, 0, z]);
-    const depth = Math.max(1, Math.round((r - d) * 1.1 + rnd() * 1.5));
-    for (let y = 1; y <= depth; y++) cells.push([y > 2 ? 's' : 'd', x, -y, z]);
-  }
-  for (const kind of ['g', 'd', 's']) {
-    const list = cells.filter(c => c[0] === kind); if (!list.length) continue;
-    const mesh = new THREE.InstancedMesh(box, kind === 'g' ? grassMat : M(kind === 'd' ? dirt : stone), list.length);
-    const o = new THREE.Object3D();
-    list.forEach((c, i) => { o.position.set(c[1], c[2], c[3]); o.updateMatrix(); mesh.setMatrixAt(i, o.matrix); });
-    g.add(mesh);
-  }
-  g.position.set(cx, 0, cz); scene.add(g); return g;
-}
-const A = island(-4.6, 0, 3, 11), B = island(4.6, 0, 3, 23);
-
-// the hopping blocks: each one arcs from island A to island B, lands with a squash, and starts again
-const hoppers = [];
-const hopMesh = () => { const m = new THREE.Mesh(box, grassMat); m.scale.setScalar(.7); scene.add(m); return m; };
-const arc = (m, t0) => {
-  const z = (rnd() - .5) * 3, sx = -4.6 + (rnd() - .5) * 2.4, ex = 4.6 + (rnd() - .5) * 2.4;
-  const tl = gsap.timeline({ repeat: -1, delay: t0, repeatDelay: .4 });
-  const s = { p: 0 };
-  tl.set(m.scale, { x: .7, y: .7, z: .7 })
-    .to(s, { p: 1, duration: 1.5, ease: 'power1.inOut', onUpdate: () => {
-      m.position.set(sx + (ex - sx) * s.p, 1.05 + Math.sin(s.p * Math.PI) * 4.2, z);
-      m.rotation.set(s.p * Math.PI * 2, s.p * Math.PI, 0);
-    } })
-    .to(m.scale, { y: .45, x: .85, z: .85, duration: .08, ease: 'power2.out' })
-    .to(m.scale, { y: .7, x: .7, z: .7, duration: .25, ease: 'back.out(3)' })
-    .to(m.scale, { x: 0, y: 0, z: 0, duration: .25, delay: .3, ease: 'back.in(2)' });
-  return tl;
-};
-seed = 77;
-for (let i = 0; i < 6; i++) { const m = hopMesh(); m.position.set(-99, 0, 0); hoppers.push(arc(m, i * .45)); }
-
-function resize() {
-  const w = canvas.clientWidth, h = canvas.clientHeight;
-  renderer.setSize(w, h, false); camera.aspect = w / h;
-  // the islands sit on the right half on wide screens, lower on narrow ones, so the text stays readable
-  const wide = w > 860;
-  camera.position.set(wide ? (RTL ? 8.5 : -8.5) : 0, wide ? 6.5 : 11, wide ? 31 : 34);
-  camera.lookAt(wide ? (RTL ? 8.5 : -8.5) : 0, wide ? 1.5 : 8.5, 0);
-  camera.updateProjectionMatrix();
-}
-addEventListener('resize', resize); resize();
-
-let mx = 0, my = 0;
-addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
-const clock = new THREE.Clock();
-gsap.ticker.add(() => {
-  const t = clock.getElapsedTime();
-  A.position.y = Math.sin(t * .8) * .25; B.position.y = Math.sin(t * .8 + 1.6) * .25;
-  scene.rotation.y += ((mx * .25) - scene.rotation.y) * .04;
-  scene.rotation.x += ((my * .08) - scene.rotation.x) * .04;
-  renderer.render(scene, camera);
-});
-if (still) { hoppers.forEach(h => h.pause()); gsap.ticker.sleep && null; }
-
-// ---------- the one load sequence: headline lines rise in, then the copy ----------
-if (!still) {
-  gsap.timeline({ defaults: { ease: 'power4.out' } })
-    .from('.hero h1', { y: 40, autoAlpha: 0, duration: 1 })
-    .from('.hero p, .hero .dl, .hero .facts', { y: 24, autoAlpha: 0, duration: .7, stagger: .08 }, '-=.6')
-    .from(canvas, { autoAlpha: 0, duration: 1.2, ease: 'power2.out' }, 0)
-    .from('.ground', { yPercent: 100, duration: .6, ease: 'power3.out' }, .3);
-
-  // the steps: a grass block walks the path as you scroll through them, hopping onto each number
-  const walker = document.getElementById('walker');
-  gsap.timeline({ scrollTrigger: { trigger: '.steps', start: 'top 75%', end: 'bottom 55%', scrub: .6 } })
-    .to(walker, { x: () => (RTL ? -1 : 1) * (document.querySelector('.path').offsetWidth - 40), ease: 'none', duration: 1 })
-    .to(walker, { keyframes: { y: [0, -26, 0, -26, 0, -26, 0], rotation: [0, 90, 90, 180, 180, 270, 270] }, ease: 'none', duration: 1 }, 0);
-  gsap.from('.step b', { scrollTrigger: { trigger: '.steps', start: 'top 70%' }, scale: 0, duration: .5, stagger: .18, ease: 'back.out(3)' });
-
-  // launchers: slots fill the hotbar one by one when it comes into view
-  gsap.from('.slot', { scrollTrigger: { trigger: '.hotbar', start: 'top 80%' }, y: -40, autoAlpha: 0, duration: .45, stagger: .05, ease: 'back.out(2.4)' });
-
-  // the XP bar fills as the last section comes into view
-  gsap.to('#xp', { width: '100%', ease: 'none', scrollTrigger: { trigger: '.final', start: 'top 80%', end: 'center 60%', scrub: true } });
-}
-
-// faq: answers open and close smoothly
-document.querySelectorAll('details').forEach(d => {
-  const a = d.querySelector('.a');
-  d.querySelector('summary').addEventListener('click', e => {
-    if (still) return;
-    e.preventDefault();
-    if (d.open) gsap.to(a, { height: 0, duration: .3, ease: 'power2.inOut', onComplete: () => { d.open = false; gsap.set(a, { clearProps: 'height' }); } });
-    else { d.open = true; gsap.from(a, { height: 0, duration: .35, ease: 'power2.out', clearProps: 'height' }); }
-  });
-});
-
-// ---------- clicks: pixel bits fly off buttons and slots ----------
-const bits = (x, y, colors, n) => { for (let i = 0; i < n; i++) {
-  const b = document.createElement('span'); b.className = 'bit'; b.style.background = colors[i % colors.length]; document.body.appendChild(b);
-  const a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 50, sz = 4 + Math.random() * 5;
-  gsap.set(b, { x, y, width: sz, height: sz });
-  gsap.timeline({ onComplete: () => b.remove() })
-    .to(b, { x: x + Math.cos(a) * d, y: y + Math.sin(a) * d - 20, rotation: Math.random() * 360, duration: .35, ease: 'power2.out' })
-    .to(b, { y: '+=50', autoAlpha: 0, duration: .45, ease: 'power2.in' }); } };
-if (!still) document.addEventListener('pointerdown', e => {
-  const el = e.target.closest('.dl, .slot, summary, .links a, .brand');
-  if (!el) return;
-  gsap.fromTo(el, { scale: .94 }, { scale: 1, duration: .5, ease: 'elastic.out(1.1, .45)', clearProps: 'scale' });
-  bits(e.clientX, e.clientY, el.matches('.dl') ? ['#7bcb4f', '#a3e675', '#8b5a2b', '#5c3a1c'] : ['#f4d34b', '#62b6f2', '#eef1ff'], el.matches('.dl') ? 14 : 8);
-});
-
-// ---------- block wipe: on load, and when jumping to a section ----------
-const wipe = document.getElementById('wipe');
-const size = innerWidth < 600 ? 56 : 80, cols = Math.ceil(innerWidth / size), rows = Math.ceil(innerHeight / size);
-wipe.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-wipe.innerHTML = '<i></i>'.repeat(cols * rows);
-const tiles = wipe.children;
-const order = { grid: [rows, cols], from: 'start', amount: .45 };
-if (still) gsap.set(tiles, { autoAlpha: 0 });
-else gsap.to(tiles, { yPercent: 120, rotation: () => gsap.utils.random(-25, 25), autoAlpha: 0, duration: .55, ease: 'power2.in', stagger: order, delay: .1 });
-document.querySelectorAll('.links a, .brand, nav .dl').forEach(a => a.addEventListener('click', e => {
-  const target = document.querySelector(a.getAttribute('href'));
-  if (!target || still) return;
-  e.preventDefault();
-  gsap.timeline()
-    .fromTo(tiles, { yPercent: -120, rotation: 0, autoAlpha: 1 }, { yPercent: 0, duration: .4, ease: 'power3.out', stagger: { ...order, amount: .3 } })
-    .add(() => { document.documentElement.style.scrollBehavior = 'auto'; target.scrollIntoView(); document.documentElement.style.scrollBehavior = ''; ScrollTrigger.update(); })
-    .to(tiles, { yPercent: 120, rotation: () => gsap.utils.random(-25, 25), autoAlpha: 0, duration: .5, ease: 'power2.in', stagger: { grid: [rows, cols], from: 'end', amount: .35 } }, '+=.05');
-}));
-
-// ---------- the transfer story: mods fly from one inventory to the other as you scroll ----------
-const mods = await (await fetch(IMG + 'mods/list.json')).json();
-const fromCells = document.getElementById('fromCells'), toCells = document.getElementById('toCells');
-fromCells.innerHTML = toCells.innerHTML = '<div class="cell"></div>'.repeat(14);
-mods.forEach((m, i) => { fromCells.children[i].innerHTML = `<img src="${IMG + m.file}" alt="${m.title}">`; });
-if (!still) {
-  const fly = [];
-  const st = gsap.timeline({ scrollTrigger: { trigger: '#story', start: 'top top', end: '+=1800', pin: true, scrub: .6 } });
-  mods.forEach((m, i) => {
-    const src = fromCells.children[i].querySelector('img');
-    const ghost = document.createElement('img'); ghost.src = IMG + m.file; ghost.className = 'flying'; ghost.style.opacity = 0; document.body.appendChild(ghost); fly.push(ghost);
-    const p = { t: 0 };
-    st.to(p, { t: 1, duration: 1, ease: 'none', onUpdate() {
-      const a = src.getBoundingClientRect(), b = toCells.children[i].getBoundingClientRect();
-      const t = p.t, e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-      const x = a.left + (b.left + (b.width - a.width) / 2 - a.left) * e, y = a.top + (b.top + (b.height - a.height) / 2 - a.top) * e - Math.sin(e * Math.PI) * 160;
-      const flying = t > 0 && t < 1;
-      ghost.style.opacity = flying ? 1 : 0; src.style.opacity = t > 0 ? 0 : 1;
-      ghost.style.width = a.width + 'px'; ghost.style.height = a.height + 'px';
-      ghost.style.transform = `translate(${x}px, ${y}px) rotate(${e * 360}deg) scale(${1 + Math.sin(e * Math.PI) * .4})`;
-      let land = toCells.children[i].querySelector('img');
-      if (t >= 1 && !land) { toCells.children[i].innerHTML = `<img src="${IMG + m.file}" alt="${m.title}">`; land = toCells.children[i].querySelector('img'); gsap.from(land, { scale: 1.5, duration: .3, ease: 'back.out(3)' }); }
-      if (t < 1 && land) land.remove();
-      const done = toCells.querySelectorAll('img').length;
-      document.getElementById('tallyN').textContent = done + ' / 14';
-      document.getElementById('tallyBar').style.width = done / 14 * 100 + '%';
-    } }, i * .55);
-  });
-}
-
-// ---------- the hero: click the islands to send another block over ----------
-canvas.addEventListener('click', () => { if (still) return; const m = hopMesh(); seed = Math.floor(Math.random() * 1e6) + 1; const tl = arc(m, 0); tl.repeat(0); tl.eventCallback('onComplete', () => scene.remove(m)); });
-
-// nav gets a background once you scroll past the top
-ScrollTrigger.create({ start: 80, onToggle: s => document.getElementById('nav').classList.toggle('solid', s.isActive) });
-</script>
+<script type="module" src="/assets/system.js"></script>
+<script type="module" src="/assets/motion/motion.js"></script>
+<script type="module" src="/assets/layout/layout.js"></script>
+<script type="module" src="/assets/diagrams/mount.js"></script>
 </body>
 </html>
