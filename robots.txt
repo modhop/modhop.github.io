@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://modhop.github.io/sitemap.xml
